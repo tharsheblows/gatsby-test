@@ -90,7 +90,7 @@ const Menu = ({ wordPressUrl }) => {
 
   if (data.wpgraphql.menuItems) {
     return (
-      <nav aria-label="main">
+      <nav aria-label="main" class="hello">
         <ul role="menu">
           {data.wpgraphql.menuItems.nodes.map(menuItem => {
             if (menuItem.childItems.nodes.length) {

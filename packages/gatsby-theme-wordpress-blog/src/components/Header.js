@@ -14,15 +14,14 @@ const Header = () => {
     query SiteTitleQuery {
       wpgraphql {
         generalSettings {
-          title
-          url
+		  title
+		  url
         }
       }
     }
   `)
 
   const { title, url } = data.wpgraphql.generalSettings
-
   return (
     <Headroom sx={{}}>
       <StyledHeader
