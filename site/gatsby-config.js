@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-theme-wpexample",
+      resolve: "gatsby-theme-tabor",
       options: {},
     },
   ],

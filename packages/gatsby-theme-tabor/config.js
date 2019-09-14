@@ -7,7 +7,7 @@
  * @type {{wordPressUrl: string}}
  */
 const config = {
-  wordPressUrl: `https://tharshetests.wordpress.com`,
-}
+  wordPressUrl: `https://idontthink.wpengine.com`,
+};
 
 module.exports = config
