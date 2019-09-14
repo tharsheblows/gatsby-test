@@ -46,15 +46,15 @@ const Post = ({ pageContext: post }) => {
         />
         <footer className="entry-footer flex justify-between">
           <div className="flex justify-start items-center">
-            <a
+            <button
               className="comments-trigger button button--mobile-fullwidth center-align"
               id="comments-trigger"
-              href="#" //TODO: setup the comment functionality
+              href="" //TODO: setup the comment functionality
             >
               <span className="display-none">Close Comments</span>
 
               <span className="display-inline-block">Leave a Comment</span>
-            </a>
+            </button>
           </div>
           {/* TODO: add taxonomies to a new component */}
           <div className="entry-footer__taxonomy justify-end self-center items-center">
