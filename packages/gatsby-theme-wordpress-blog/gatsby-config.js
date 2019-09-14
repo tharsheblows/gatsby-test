@@ -43,7 +43,15 @@ module.exports = options => {
           display: 'swap',
         },
       },
-
+      {
+        resolve: 'gatsby-plugin-global-context',
+        options: {
+          context: {
+            kittens: true,
+            wordPressUrl: `${wordPressUrl}`,
+          },
+        },
+      },
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,

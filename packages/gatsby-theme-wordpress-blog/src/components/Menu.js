@@ -46,11 +46,11 @@ const renderLink = (menuItem, wordPressUrl, postsPath) =>
         {menuItem.label}
       </a>
     )
-  ) : createLocalLink(menuItem.url, wordPressUrl) ? (
+  ) : createLocalLink(menuItem.url ) ? (
     menuItem.url === wordPressUrl ? (
       <Link to="/"> {menuItem.label}</Link>
     ) : (
-      <Link to={createLocalLink(menuItem.url, wordPressUrl)}>
+      <Link to={createLocalLink(menuItem.url )}>
         {menuItem.label}
       </Link>
     )
@@ -87,7 +87,6 @@ const renderSubMenu = (menuItem, wordPressUrl, postsPath) => {
 const Menu = ({ wordPressUrl }) => {
   const data = useStaticQuery(MENU_QUERY)
   const { postsPath } = data.sitePlugin.pluginOptions
-
   if (data.wpgraphql.menuItems) {
     return (
       <nav aria-label="main" class="hello">

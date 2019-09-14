@@ -5643,6 +5643,14 @@ gatsby-plugin-glamor@^2.0.5:
   dependencies:
     "@babel/runtime" "^7.6.0"
 
+gatsby-plugin-global-context@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-global-context/-/gatsby-plugin-global-context-1.0.0.tgz#f3e9311418cda6335bb0553adf4455a75325537f"
+  integrity sha512-EHCgXwhzLgG1myVRmLOU2f1IZzckqBOo5ZF/CqYAHOrUXNZRF3ADag7u70LyyB6dYu9nZ+z14pKfQBR5nKZ84A==
+  dependencies:
+    invariant "^2.2.4"
+    is-object "^1.0.1"
+
 gatsby-plugin-google-fonts@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-fonts/-/gatsby-plugin-google-fonts-1.0.1.tgz#d71054f7bf207b9a8da227380369e18e6f4e0201"
