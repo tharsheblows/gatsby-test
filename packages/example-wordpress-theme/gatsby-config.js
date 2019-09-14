@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-	title: `Gatsby and WordPress`,
-	subtitle: `this is the example theme`,
+    title: `Gatsby and WordPress`,
+    subtitle: `this is the example theme`,
     description: `Edited by @tharsheblows, any issues and lack of styling is all me.`,
     author: `@gatsbyjs`,
   },
@@ -11,13 +11,6 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/images`,
       },
     },
     `gatsby-transformer-sharp`,
