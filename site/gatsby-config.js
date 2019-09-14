@@ -9,8 +9,14 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-theme-tabor",
-      options: {},
+      resolve: `@alexadark/gatsby-theme-wordpress-blog`,
+      options: {
+        wordPressUrl: `https://idontthink.wpengine.com`,
+        postsPrefix: `posts`,
+        postsPath: ``,
+        paginationPrefix: `blog`,
+        postsPerPage: 8,
+      },
     },
   ],
 }
