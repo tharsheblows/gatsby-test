@@ -4,6 +4,10 @@
   "description": "Gatsby starter theme",
   "main": "index.js",
   "license": "MIT",
+  "browserslist": [
+	"last 2 version",
+	"> 2%"
+  ],
   "devDependencies": {
     "gatsby": "^2.1.27",
     "react": "^16.8.4",
