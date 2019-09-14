@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React from 'react'
 import { Global } from '@emotion/core'
 import { GlobalStyles } from '../styles/GlobalStyles'
 

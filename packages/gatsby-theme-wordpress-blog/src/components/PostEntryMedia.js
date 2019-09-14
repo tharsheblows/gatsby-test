@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React from 'react'
 import { Link } from 'gatsby'
 
 const WithLink = ({ post, location, children, postsPrefix }) =>

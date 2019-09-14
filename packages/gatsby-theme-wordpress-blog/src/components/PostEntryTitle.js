@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import React from 'react'
 import { Link } from 'gatsby'
 
 const PostEntryTitle = ({ post, location, postsPrefix }) => {
