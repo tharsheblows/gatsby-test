@@ -1,5 +1,5 @@
 {
-  "name": "example-wordpress-theme",
+  "name": "gatsby-theme-wpexample",
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
   "main": "index.js",

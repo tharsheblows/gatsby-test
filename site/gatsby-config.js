@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "example-wordpress-theme",
+      resolve: "gatsby-theme-wpexample",
       options: {},
     },
   ],
