@@ -1,4 +1,5 @@
 import { transitions } from '../sharedStyles'
+import { theme } from 'theme-ui'
 
 export const menus = {
   main: {
@@ -35,6 +36,7 @@ export const menus = {
         bg: `white`,
         border: t => `1px solid ${t.colors.muted}`,
         '>.menu-item': {
+          width: `auto`,
           borderBottom: t => `1px solid ${t.colors.muted}`,
           py: `5px`,
           px: `10px`,

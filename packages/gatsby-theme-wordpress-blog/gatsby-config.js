@@ -1,6 +1,6 @@
 module.exports = options => {
   const {
-    wordPressUrl = `https://idontthink.wpengine.com`,
+    wordPressUrl = `http://alexandraspalato.com/gatsby/`,
     postsPath = `blog`,
     paginationPrefix = `/page`,
     postsPrefix = ``,
