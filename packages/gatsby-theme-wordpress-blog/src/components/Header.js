@@ -8,6 +8,7 @@ import SiteBranding from './SiteBranding'
 
 import { slide as SlideMenu } from 'react-burger-menu'
 import Headroom from 'react-headroom'
+import { relative } from 'upath'
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -23,11 +24,10 @@ const Header = () => {
 
   const { title, url } = data.wpgraphql.generalSettings
   return (
-    <Headroom sx={{}}>
+    <Headroom sx={{ zIndex: "100" }}>
       <StyledHeader
         sx={{
-          bg: `white`,
-
+          bg: `background`,
           boxShadow: `default`,
           '.bm-burger-button': {
             position: 'relative',

@@ -1,5 +1,5 @@
 const sharedCardStyles = {
-  boxShadow: `lg`,
+  border: `1px solid black`,
   borderRadius: 10,
   fontFamily: `body`,
   '.entry-title': {
@@ -29,6 +29,7 @@ export const cards = {
   },
   muted: {
     ...sharedCardStyles,
-    bg: `muted`,
+	bg: `grayDark`,
+	borderColor: `backgroundLight`,
   },
 }

@@ -5,7 +5,8 @@ export const links = {
            ...a,
            color: `primary`,
 		   position: `relative`,
-		   zIndex: 100,
+		   zIndex: 1,
+		   display: `inline-block`,
 
            ':after': {
              content: `""`,

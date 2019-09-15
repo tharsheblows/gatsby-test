@@ -9,9 +9,7 @@ const Categories = ({ post }) => {
       {categories.length > 0 && (
         <span
           sx={{
-            color: 'muted',
             fontSize: 1,
-            fontFamily: `heading`,
             letterSpacing: 1,
             mr: 1,
           }}
@@ -20,16 +18,14 @@ const Categories = ({ post }) => {
         </span>
       )}
       {categories.map(cat => (
-        <button sx={{ variant: `buttons.primary`, mr: 1, mb: 2 }}>
           <Link
-            sx={{ color: '#fff' }}
+            sx={{variant: `links.decorated`}}
             to={`/category/${cat.slug}`}
             key={cat.id}
             aria-label={`visit category ${cat.name} page`}
           >
             {cat.name}
           </Link>
-        </button>
       ))}
     </div>
   )

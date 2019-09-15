@@ -9,10 +9,13 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <SEO title={title} description={excerpt} />
-      <div sx={{ variant: `cards.dark` }}>
+      <div sx={{ variant: `cards.muted` }}>
         <div className="content">
           <Styled.h1
-            sx={{ textAlign: 'center', textTransform: 'uppercase' }}
+            sx={{
+              textAlign: 'center',
+              textTransform: 'uppercase',
+            }}
             className="page-title"
             dangerouslySetInnerHTML={{ __html: title }}
           />

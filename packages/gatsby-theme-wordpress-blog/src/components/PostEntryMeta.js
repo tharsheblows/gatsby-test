@@ -5,7 +5,7 @@ import Tags from "./Tags"
 
 const PostEntryMeta = ({ post }) => {
   return (
-    <div className="entry-meta">
+    <div className="entry-meta" sx={{ fontSize: 1, mb: 1 }}>
       <Categories post={post} />
       <Tags post={post} />
     </div>
