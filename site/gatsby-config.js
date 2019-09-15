@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby and WordPress`,
+    title: `I don't think it works like that`,
     description: `Edited by @tharsheblows, any issues and lack of styling is all me.`,
     author: `@gatsbyjs,@alexadark`,
   },

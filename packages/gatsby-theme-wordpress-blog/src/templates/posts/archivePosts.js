@@ -19,7 +19,7 @@ const Blog = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title="blog" description="this is the posts page" />
+      <SEO title="Posts" description="this is the posts page" />
 
       {data &&
         data.wpgraphql &&
