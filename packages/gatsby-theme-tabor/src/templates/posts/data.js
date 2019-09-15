@@ -1,3 +1,4 @@
+
 const PostTemplateFragment = `
   fragment PostTemplateFragment on WPGraphQL_Post {
     id
@@ -29,7 +30,7 @@ const PostTemplateFragment = `
         url
       }
       slug
-    }
+	}
   }
 `;
 
@@ -57,5 +58,7 @@ const BlogPreviewFragment = `
   }
 `;
 
+
 module.exports.PostTemplateFragment = PostTemplateFragment;
 module.exports.BlogPreviewFragment = BlogPreviewFragment;
+module.exports.CommentFields = CommentFields;

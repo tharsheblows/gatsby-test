@@ -19,12 +19,25 @@ const SinglePost = ({ data, pageContext }) => {
 export default SinglePost
 
 export const pageQuery = graphql`
-  query GET_POST($id: ID!) {
-    wpgraphql {
-      post(id: $id) {
-        content
-        ...PostTemplateFragment
-      }
-    }
-  }
-`
+         query GET_POST($id: ID!) {
+           wpgraphql {
+             post(id: $id) {
+               content
+               comments {
+                 nodes {
+                   commentId
+				   content
+				   date
+                   author {
+                     ... on WPGraphQL_CommentAuthor {
+                       id
+					   name
+                     }
+                   }
+                 }
+               }
+               ...PostTemplateFragment
+             }
+           }
+         }
+       `

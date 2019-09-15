@@ -10,7 +10,6 @@ import {
   menus,
   cards,
   pagination,
-  paginationLinks,
   pageNumbers,
   gradients,
 } from './components'
@@ -55,7 +54,6 @@ export default {
   menus,
   cards,
   pagination,
-  paginationLinks,
   pageNumbers,
   gradients,
 }

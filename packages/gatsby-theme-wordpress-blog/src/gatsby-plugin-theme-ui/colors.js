@@ -14,4 +14,5 @@ export default {
   //   dark: tailwind.colors.gray[7],
   //   muted: tailwind.colors.gray[5],
   light: tailwind.colors.gray[3],
+  grayLighter: `#232b38`,
 }

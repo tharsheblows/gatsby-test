@@ -28,7 +28,7 @@ const PostEntry = ({ post, location, options }) => {
         />
         <div className="entry-footer" sx={{ color: `gray` }}>
           <PostEntryInfo className="entry-info" post={post} />
-          <PostEntryMeta post={post} />
+          <PostEntryMeta post={post} location={location} />
         </div>
       </div>
     </article>

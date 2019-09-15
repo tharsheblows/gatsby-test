@@ -1,7 +1,6 @@
 import moment from "moment/moment"
 
-const Date = ({ post }) => {
-	const { date } = post
+const Date = ({ date }) => {
 	return moment(date).format(`MMMM D, YYYY`)
 }
 

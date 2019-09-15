@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 const Categories = ({ post }) => {
   const categories = post.categories.nodes
   return (
-    <div sx={{ mb: 2 }}>
+    <div sx={{ mb: 1 }}>
       {categories.length > 0 && (
         <span
           sx={{

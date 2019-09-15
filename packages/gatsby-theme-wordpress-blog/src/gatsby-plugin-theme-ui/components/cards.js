@@ -11,25 +11,29 @@ const sharedCardStyles = {
 }
 
 export const cards = {
-  white: {
-    ...sharedCardStyles,
-    bg: `white`,
-  },
-  dark: {
-	  ...sharedCardStyles,
-	  bg: `dark`,
-  },
-  primary: {
-    ...sharedCardStyles,
-    bg: `primary`,
-  },
-  secondary: {
-    ...sharedCardStyles,
-    bg: `secondary`,
-  },
-  muted: {
-    ...sharedCardStyles,
-	bg: `grayDark`,
-	borderColor: `backgroundLight`,
-  },
-}
+         white: {
+           ...sharedCardStyles,
+           bg: `white`,
+         },
+         dark: {
+           ...sharedCardStyles,
+           bg: `dark`,
+         },
+         primary: {
+           ...sharedCardStyles,
+           bg: `primary`,
+         },
+         secondary: {
+           ...sharedCardStyles,
+           bg: `secondary`,
+         },
+         muted: {
+           ...sharedCardStyles,
+           bg: `grayDark`,
+           borderColor: `backgroundLight`,
+         },
+		 lessMuted: {
+			 ...sharedCardStyles,
+			 bg: `grayLighter`
+		 }
+       }
