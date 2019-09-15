@@ -97,6 +97,15 @@ export const h6 = {
   mb: 2,
 }
 
+export const img = {
+	height: 'auto',
+}
+
+export const figure = {
+	maxWidth: '100%',
+	marginLeft: 0,
+}
+
 export const base = {
   ...tailwind.styles.root,
   fontSize: [1, 2],
@@ -109,4 +118,6 @@ export const base = {
   h4,
   h5,
   h6,
+  img,
+  figure
 }
