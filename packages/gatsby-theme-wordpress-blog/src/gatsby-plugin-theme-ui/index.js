@@ -1,4 +1,4 @@
-import { deep } from '@theme-ui/presets'
+import { dark } from '@theme-ui/presets'
 
 import colors from './colors'
 import { fonts, fontSizes, fontWeights, lineHeights, base } from './typo'
@@ -16,7 +16,7 @@ import {
 } from './components'
 
 export default {
-  ...deep,
+  ...dark,
   colors,
   fonts,
   fontSizes,
@@ -25,18 +25,18 @@ export default {
   space,
   sizes,
   shadows: {
-    ...deep.shadows,
+    ...dark.shadows,
     default: `0px 1px 10px rgba(0,0,0,0.05)`,
     hover: `0px 10px 20px rgba(0,0,0,0.25)`,
   },
 
   breakpoints: [`600px`, `900px`, `1200px`],
   radii: {
-    ...deep.radii,
+    ...dark.radii,
     xl: `1rem`,
   },
   styles: {
-    ...deep.styles,
+    ...dark.styles,
     ...base,
     root: base,
     Footer: {
