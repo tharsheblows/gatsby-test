@@ -39,13 +39,16 @@ const Header = () => {
             ':hover': {
               cursor: `pointer`,
               '.bm-burger-bars': {
-                background: t => t.colors.primary,
+                background: t => t.colors.shadeBlue,
                 opacity: 1,
               },
             },
-          },
+		  },
+		  '.bm-menu-wrap': {
+			  variant: `gradients.secondary`
+		  },
           '.bm-burger-bars': {
-            background: `#444`,
+            background: `white`,
             transition: `all .4s ease-in-out`,
           },
           'div:nth-child(3)': {
@@ -62,16 +65,21 @@ const Header = () => {
               <Menu wordPressUrl={url} />
             </div>
             <SlideMenu
-              right
-              width={'300px'}
+			  right
+              width={'auto'}
               sx={{
                 bg: `secondary`,
                 color: `primary`,
-                top: 0,
+				top: 0,
                 height: `100vh !important`,
-
+                ul: {
+					marginRight: `40px`,
+				},
                 a: {
-                  color: `white`,
+				  color: `white`,
+				  ':active': {
+					  color: `primaryLight`
+				  }
                 },
                 fontSize: 2,
                 fontFamily: `heading`,
