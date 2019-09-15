@@ -9,7 +9,7 @@ const FooterContent = () => {
       <br />
       Theme shadowed:{' '}
       <a href="https://www.npmjs.com/package/@alexadark/gatsby-theme-wordpress-blog">
-        Gatsby Theme WordPress Blog by Alexandra Dark
+        Gatsby Theme WordPress Blog by Alexandra Spalato
       </a>
     </>
   )
