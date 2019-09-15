@@ -169,7 +169,8 @@ module.exports = async ({ actions, graphql }, options) => {
           path: `/${postsPrefix}/${post.uri}/`,
           component: postTemplate,
           context: {
-            ...post,
+			...post,
+			options,
             prev: allPosts[index + 1],
             next: allPosts[index - 1],
           },

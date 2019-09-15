@@ -1,10 +1,6 @@
 module.exports = options => {
   const {
     wordPressUrl = `https://idontthink.wpengine.com`,
-    postsPath = `blog`,
-    paginationPrefix = `/page`,
-    postsPrefix = ``,
-    postsPerPage = 10,
   } = options
 
   return {
@@ -41,15 +37,6 @@ module.exports = options => {
         options: {
           fonts: [`Inconsolata\:400, 700`, `Oswald\:200,300,400,500,600,700`],
           display: 'swap',
-        },
-      },
-      {
-        resolve: 'gatsby-plugin-global-context',
-        options: {
-          context: {
-            kittens: true,
-            wordPressUrl: `${wordPressUrl}`,
-          },
         },
       },
       `gatsby-plugin-react-helmet`,

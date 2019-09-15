@@ -9,7 +9,7 @@ import SEO from '../../components/Seo'
 
 const User = ({ data, pageContext }) => {
   const { name, posts, avatar } = data.wpgraphql.user
-  const { postsPrefix } = pageContext.options
+  const { options } = pageContext
 
   return (
     <Layout>
@@ -38,7 +38,7 @@ const User = ({ data, pageContext }) => {
             key={post.id}
             location="archive"
             post={post}
-            postsPrefix={postsPrefix}
+            options={options}
           />
         ))}
     </Layout>

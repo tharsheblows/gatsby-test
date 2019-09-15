@@ -14,7 +14,7 @@ const Blog = ({ data, pageContext }) => {
     hasNextPage,
     postsPerPage,
     allPosts,
-    options: { postsPrefix, postsPath, paginationPrefix },
+    options,
   } = pageContext
 
   return (
@@ -28,7 +28,7 @@ const Blog = ({ data, pageContext }) => {
             key={post.id}
             location="archive"
             post={post}
-            postsPrefix={postsPrefix}
+            options={options}
           />
         ))}
 
@@ -37,8 +37,8 @@ const Blog = ({ data, pageContext }) => {
         hasNextPage={hasNextPage}
         allPosts={allPosts}
         itemsPerPage={postsPerPage}
-        postsPath={postsPath}
-        paginationPrefix={paginationPrefix}
+        postsPath={options.postsPath}
+        paginationPrefix={options.paginationPrefix}
       />
     </Layout>
   )

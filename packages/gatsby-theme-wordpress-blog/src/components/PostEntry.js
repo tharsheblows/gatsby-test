@@ -7,7 +7,8 @@ import PostEntryContent from './PostEntryContent'
 import PostEntryMeta from './PostEntryMeta'
 import PostEntryInfo from './PostEntryInfo'
 
-const PostEntry = ({ post, location, postsPrefix }) => {
+const PostEntry = ({ post, location, options }) => {
+  const { postsPrefix, wordPressUrl } = options
   return (
     <article sx={{ variant: `cards.white`, mb: 5 }}>
       <PostEntryMedia
@@ -22,7 +23,7 @@ const PostEntry = ({ post, location, postsPrefix }) => {
           postsPrefix={postsPrefix}
         />
         <PostEntryInfo className="entry-info" post={post} />
-        <PostEntryContent location={location} post={post} />
+        <PostEntryContent location={location} post={post} wordPressUrl={wordPressUrl} />
         <div className="entry-footer">
           <PostEntryMeta post={post} />
           {location !== 'single' && (

@@ -1,6 +1,6 @@
-export const createLocalLink = (url, wordPressUrl) => {
+export const createLocalLink = (url, wordPressUrl,prefix='') => {
   if (`#` === url) {
     return null
   }
-  return url.replace(`https://idontthink.wpengine.com`, ``)
+  return url.replace( wordPressUrl, `${prefix}`)
 }

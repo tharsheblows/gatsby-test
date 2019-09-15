@@ -8,7 +8,7 @@ import SEO from '../../components/Seo'
 
 const Tag = ({ data, pageContext }) => {
   const { name, posts } = data.wpgraphql.tag
-  const { postsPrefix } = pageContext.options
+  const { options  } = pageContext
 
   return (
     <Layout>
@@ -30,7 +30,7 @@ const Tag = ({ data, pageContext }) => {
             key={post.id}
             location="archive"
             post={post}
-            postsPrefix={postsPrefix}
+            options={options}
           />
         ))}
     </Layout>
