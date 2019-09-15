@@ -9,7 +9,7 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <SEO title={title} description={excerpt} />
-      <div sx={{ variant: `cards.white` }}>
+      <div sx={{ variant: `cards.dark` }}>
         <div className="content">
           <Styled.h1
             sx={{ textAlign: 'center', textTransform: 'uppercase' }}

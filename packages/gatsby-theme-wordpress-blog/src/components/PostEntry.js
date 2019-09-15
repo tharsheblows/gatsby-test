@@ -10,7 +10,7 @@ import PostEntryInfo from './PostEntryInfo'
 const PostEntry = ({ post, location, options }) => {
   const { postsPrefix, wordPressUrl } = options
   return (
-    <article sx={{ variant: `cards.white`, mb: 5 }}>
+    <article sx={{ variant: `cards.dark`, mb: 5 }}>
       <PostEntryMedia
         location={location}
         post={post}

@@ -15,6 +15,10 @@ export const cards = {
     ...sharedCardStyles,
     bg: `white`,
   },
+  dark: {
+	  ...sharedCardStyles,
+	  bg: `dark`,
+  },
   primary: {
     ...sharedCardStyles,
     bg: `primary`,

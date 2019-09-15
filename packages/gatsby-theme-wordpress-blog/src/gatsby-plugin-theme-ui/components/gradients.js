@@ -1,10 +1,10 @@
 export const gradients = {
   primary: {
     backgroundImage: t =>
-      `linear-gradient(45deg, ${t.colors.primary}, ${t.colors.purple[7]})`,
+      `linear-gradient(45deg, ${t.colors.primary}, ${t.colors.secondary})`,
   },
   secondary: {
     backgroundImage: t =>
-      `linear-gradient(45deg, ${t.colors.secondary}, ${t.colors.purple[6]})`,
+      `linear-gradient(45deg, ${t.colors.highlight}, ${t.colors.secondary})`,
   },
 }
