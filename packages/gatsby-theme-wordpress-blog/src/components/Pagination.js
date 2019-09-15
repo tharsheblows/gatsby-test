@@ -12,9 +12,9 @@ const Pagination = ({
 }) => {
   const isLast = pageNumber === allPosts / itemsPerPage
   return (
-    <div sx={{ variant: `pagination` }}>
+    <div sx={{ variant: `pagination`, fontFamily: `body` }}>
       {pageNumber > 1 && (
-        <div sx={{ variant: `paginationLinks` }}>
+        <div sx={{ variant: `pageNumbers` }}>
           {pageNumber !== 1 ? (
             <Link
               to={
@@ -53,7 +53,7 @@ const Pagination = ({
         </nav>
       </div>
       {hasNextPage && (
-        <div sx={{ variant: `paginationLinks` }}>
+        <div sx={{ variant: `pageNumbers` }}>
           {!isLast ? (
             <Link to={`${postsPath}/${paginationPrefix}/${pageNumber + 1}`}>
               Next →

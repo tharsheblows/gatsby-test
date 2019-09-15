@@ -3,14 +3,14 @@ import { Container, Footer as StyledFooter, jsx } from 'theme-ui'
 import FooterContent from './FooterContent'
 
 const Footer = () => (
-  <StyledFooter sx={{ bg: `secondary`, color: 'white' }}>
+  <StyledFooter sx={{ bg: `background`, color: `white`, fontFamily: `body` }}>
     <Container
       sx={{
         maxWidth: `l`,
         textAlign: 'center',
         fontSize: 1,
         a: {
-          color: 'muted',
+          color: 'primaryLight',
           textDecoration: 'underline',
           '&:hover': {
             color: 'primary',

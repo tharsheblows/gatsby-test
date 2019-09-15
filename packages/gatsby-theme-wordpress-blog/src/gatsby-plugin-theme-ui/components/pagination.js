@@ -19,27 +19,13 @@ export const pageNumbers = {
     py: `5px`,
     px: 1,
     variant: `gradients.secondary`,
-    borderRadius: `100%`,
+    borderRadius: `10%`,
     border: `none`,
     mr: `5px`,
     color: `white`,
     transition: `all .4s ease-in-out`,
     '&:hover, &[aria-current="page"]': {
       variant: `gradients.primary`,
-    },
-  },
-}
-
-export const paginationLinks = {
-  textTransform: `uppercase`,
-  fontSize: `12px`,
-  letterSpacing: 1,
-
-  a: {
-    pb: `5px`,
-    color: `text`,
-    '&:hover': {
-      color: `primary`,
     },
   },
 }
