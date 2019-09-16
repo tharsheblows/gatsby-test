@@ -36,7 +36,8 @@ const MENU_QUERY = graphql`
 `
 
 const renderLink = (menuItem, wordPressUrl, postsPath) =>
-  menuItem.connectedObject.__typename === 'WPGraphQL_MenuItem' ? (
+  menuItem.connectedObject && menuItem.connectedObject.__typename ===
+  'WPGraphQL_MenuItem' ? (
     menuItem.url === `/${postsPath}` ? (
       <Link to={`/${postsPath}`}> {menuItem.label}</Link>
     ) : menuItem.url === `#` ? (
@@ -46,11 +47,11 @@ const renderLink = (menuItem, wordPressUrl, postsPath) =>
         {menuItem.label}
       </a>
     )
-  ) : createLocalLink(menuItem.url, wordPressUrl ) ? (
+  ) : createLocalLink(menuItem.url, wordPressUrl) ? (
     menuItem.url === wordPressUrl ? (
       <Link to="/"> {menuItem.label}</Link>
     ) : (
-      <Link to={createLocalLink(menuItem.url, wordPressUrl )}>
+      <Link to={createLocalLink(menuItem.url, wordPressUrl)}>
         {menuItem.label}
       </Link>
     )
@@ -97,7 +98,7 @@ const Menu = ({ wordPressUrl }) => {
             } else {
               return renderMenuItem(menuItem, wordPressUrl, postsPath)
             }
-          })}
+		  })}
         </ul>
       </nav>
     )

@@ -1,10 +1,14 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import { createLocalLink } from '../utils'
+import { createLocalLinksInContent } from '../utils'
 
 const PostEntryContent = ({ post, location, wordPressUrl }) => {
   const content = location === 'single' ? post.content : post.excerpt
-  const localLinkContent = createLocalLink( content, wordPressUrl, `posts` )
+  const localLinkContent = createLocalLinksInContent(
+    content,
+    wordPressUrl,
+    `posts`
+  )
 
   return (
     <Styled.root
