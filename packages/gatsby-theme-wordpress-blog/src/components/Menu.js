@@ -90,7 +90,7 @@ const Menu = ({ wordPressUrl }) => {
   const { postsPath } = data.sitePlugin.pluginOptions
   if (data.wpgraphql.menuItems) {
     return (
-      <nav aria-label="main" class="hello">
+      <nav aria-label="main">
         <ul role="menu">
           {data.wpgraphql.menuItems.nodes.map(menuItem => {
             if (menuItem.childItems.nodes.length) {

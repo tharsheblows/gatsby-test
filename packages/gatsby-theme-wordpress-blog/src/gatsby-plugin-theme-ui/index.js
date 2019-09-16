@@ -12,6 +12,7 @@ import {
   pagination,
   pageNumbers,
   gradients,
+  forms,
 } from './components'
 
 export default {
@@ -53,6 +54,7 @@ export default {
   buttons,
   menus,
   cards,
+  forms,
   pagination,
   pageNumbers,
   gradients,

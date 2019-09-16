@@ -37,6 +37,7 @@
     "@emotion/styled": "^10.0.14",
     "@mdx-js/react": "^1.0.21",
     "@theme-ui/presets": "^0.2.25",
+    "@wordpress/shortcode": "^2.4.0",
     "emotion": "^10.0.14",
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-google-fonts": "^1.0.1",

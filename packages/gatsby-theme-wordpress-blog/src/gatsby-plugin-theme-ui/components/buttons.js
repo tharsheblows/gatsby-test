@@ -9,7 +9,7 @@ const sharedButtonStyles = {
   boxShadow: `md`,
   '&:hover': {
     transform: `translateY(-5px)`,
-    boxShadow: `hover`,
+    boxShadow: t => `0 2px 2px 0 ${t.colors.yellow}`,
   },
 }
 

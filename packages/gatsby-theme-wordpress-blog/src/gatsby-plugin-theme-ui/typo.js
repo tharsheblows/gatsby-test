@@ -119,5 +119,5 @@ export const base = {
   h5,
   h6,
   img,
-  figure
+  figure,
 }
