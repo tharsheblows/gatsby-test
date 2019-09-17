@@ -42,8 +42,7 @@ export default class ContactForm extends React.Component {
 	}
 
     const formMeta = {
-      user: 'contact',
-      method: 'post',
+      name: 'contact',
       'data-netlify': 'true',
       'data-netlify-honeypot': 'bot-field',
 	}
