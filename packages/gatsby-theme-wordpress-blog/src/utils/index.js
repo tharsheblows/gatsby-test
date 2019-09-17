@@ -18,3 +18,4 @@ export const createLocalLink = ( url, wordPressUrl, prefix='' ) => {
 	}
 	return url.replace( wordPressUrl, prefix)
 }
+
