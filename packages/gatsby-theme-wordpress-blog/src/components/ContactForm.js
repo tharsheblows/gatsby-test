@@ -16,6 +16,7 @@ export default class ContactForm extends React.Component {
     const value = target.value
     const name = target.name
     this.setState({
+	  error: '',
       [name]: value,
     })
   }
@@ -30,21 +31,22 @@ export default class ContactForm extends React.Component {
     if (this.botField) {
       this.setState({
         error: 'Verification failed',
-      })
+	  })
+	  alert('Fill out all fields')
       return
     }
 
-    if (!this.state.userName || !this.state.email || !this.state.messsage) {
+    if (!this.state.userName || !this.state.email || !this.state.message) {
       this.setState({
         error: 'Please fill out all fields',
-      })
+	  })
+	  alert('Please fill out all fields')
       return
 	}
 
     const formMeta = {
       name: 'contact',
-      'data-netlify': 'true',
-      'data-netlify-honeypot': 'bot-field',
+	  'data-netlify': 'true',
 	}
 
     fetch('/', {
