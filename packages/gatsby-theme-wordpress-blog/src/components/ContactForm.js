@@ -45,7 +45,7 @@ export default class ContactForm extends React.Component {
 	}
 
     const formMeta = {
-      name: 'contact',
+      'form-name': 'contact',
 	  'data-netlify': 'true',
 	}
 
