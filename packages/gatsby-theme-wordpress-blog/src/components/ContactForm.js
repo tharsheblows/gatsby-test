@@ -67,7 +67,10 @@ export default class ContactForm extends React.Component {
         ...formMeta,
       }),
     })
-      .then(() => alert('Success!'))
+      .then(() => {
+		  this.handleClear()
+		  alert('Success! And worry not, proper success and error things coming soon.'))
+	  }
       .catch(error => alert(error))
   }
 
