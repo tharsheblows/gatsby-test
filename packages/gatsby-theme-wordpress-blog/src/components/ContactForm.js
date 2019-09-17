@@ -91,7 +91,7 @@ export default class ContactForm extends React.Component {
             type="text"
             name="userName"
             id="userName"
-            value={this.state.name}
+            value={this.state.userName}
             onChange={this.handleInputChange}
           />
         </div>
@@ -111,7 +111,7 @@ export default class ContactForm extends React.Component {
             name="message"
             id="message"
             rows="6"
-            value={this.state.messsage}
+            value={this.state.message}
             onChange={this.handleInputChange}
           />
         </div>
