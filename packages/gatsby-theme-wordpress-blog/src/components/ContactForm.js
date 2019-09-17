@@ -61,7 +61,7 @@ export default class ContactForm extends React.Component {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: this.encode({
-        userName: this.state.userName,
+        name: this.state.userName,
         email: this.state.email,
         message: this.state.message,
         ...formMeta,
