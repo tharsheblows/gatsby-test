@@ -11,6 +11,12 @@ export default class ContactForm extends React.Component {
     error: '',
   }
 
+  encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
+
   handleInputChange = event => {
     const target = event.target
     const value = target.value
@@ -54,7 +60,7 @@ export default class ContactForm extends React.Component {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify({
+      body: this.encode({
         userName: this.state.userName,
         email: this.state.email,
         message: this.state.message,
