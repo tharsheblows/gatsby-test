@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui'
 import React from 'react'
 
 export default class ContactForm extends React.Component {
@@ -8,7 +8,8 @@ export default class ContactForm extends React.Component {
     email: '',
     botField: '',
     message: '',
-    error: '',
+	error: '',
+	successfulSubmission: false
   }
 
   encode = (data) => {
@@ -68,9 +69,11 @@ export default class ContactForm extends React.Component {
       }),
     })
       .then(() => {
-		  this.handleClear()
-		  alert('Success! And worry not, proper success and error things coming soon.')
-	  })
+		this.handleClear()
+		this.setState({
+			successfulSubmission: true
+		})
+      })
       .catch(error => alert(error))
   }
 
@@ -81,49 +84,60 @@ export default class ContactForm extends React.Component {
       this.setState(stateObj)
     }
   }
+
   render() {
+	  if( this.state.successfulSubmission ){
+		 return (
+			 <Styled.h2
+			 	sx={{ textAlign: `center`, mb: 5, variant: `gradients.secondary` }}
+			 >
+				 Thank you! I will be in touch soon.
+			 </Styled.h2>
+		 )
+	  } else {
     return (
-      <form sx={{ variant: `forms.main` }} onSubmit={this.handleSubmit}>
-        <input type="hidden" name="botField" />
-        <div className="field">
-          <label htmlFor="userName">Name</label>
-          <input
-            type="text"
-            name="userName"
-            id="userName"
-            value={this.state.userName}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="message">Message</label>
-          <textarea
-            name="message"
-            id="message"
-            rows="6"
-            value={this.state.message}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <ul className="actions">
-          <li>
-            <input type="submit" value="Send Message" className="special" />
-          </li>
-          <li>
-            <input type="reset" value="Clear" onClick={this.handleClear} />
-          </li>
-        </ul>
-      </form>
-    )
+        <form sx={{ variant: `forms.main` }} onSubmit={this.handleSubmit}>
+          <input type="hidden" name="botField" />
+          <div className="field">
+            <label htmlFor="userName">Name</label>
+            <input
+              type="text"
+              name="userName"
+              id="userName"
+              value={this.state.userName}
+              onChange={this.handleInputChange}
+            />
+          </div>
+          <div className="field">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              value={this.state.email}
+              onChange={this.handleInputChange}
+            />
+          </div>
+          <div className="field">
+            <label htmlFor="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="6"
+              value={this.state.message}
+              onChange={this.handleInputChange}
+            />
+          </div>
+          <ul className="actions">
+            <li>
+              <input type="submit" value="Send Message" className="special" />
+            </li>
+            <li>
+              <input type="reset" value="Clear" onClick={this.handleClear} />
+            </li>
+          </ul>
+        </form>
+	)
+	}
   }
 }
