@@ -48,87 +48,104 @@ export default class CommentForm extends React.Component {
       // Wrap it in our mutation.
       // This needs to be cleaned up but for now it's easier to see if it's all in one place.
       // Except for the mutation I guess. It's in utils, maybe it should be somewhere else?
-			<Mutation
-				mutation={CREATE_COMMENT}
+      <Mutation
+        mutation={CREATE_COMMENT}
         // Set completion state.
-        variables = {{
+        variables={{
           input: {
             author: userName,
             commentOn: this.props.post.postId, // see above, this might change to id at some point.
             content: message,
             authorEmail: email,
             clientMutationId: 'TSTCreateComment',
-          }
+          },
         }}
-				onCompleted={() => {
-					this.setState({ commentStatus: 'success' });
-				}}
-				// Set error state.
-				onError={() => {
-					this.setState({ commentStatus: 'error' });
+        onCompleted={() => {
+          this.setState({ commentStatus: 'success' })
         }}
-        onSubmit = { (e) => {
+        // Set error state.
+        onError={() => {
+          this.setState({ commentStatus: 'error' })
+        }}
+        onSubmit={e => {
           e.preventDefault()
           this.handleClear()
         }}
-			>
-			  {(createComment) => (
+      >
+        {createComment => (
           <>
             <Styled.h3>Leave a comment</Styled.h3>
-            <Styled.p>
-              Your email address is required although it will not be shown publicly. All comments go through Akismet whose privacy policy can be found here: https://akismet.com/privacy/.
-              I don't use your Gravatar but will publish whatever name you put in the form and the date and, as you might expect, the comment.
-              The data is stored on the WordPress install on WP Engine.
+            <Styled.p
+				sx={{ a: { variant: `links.decorated` }, color: `lightDarker` }}>
+              Your email address is required although it will not be shown
+              publicly. All comments go through Akismet whose privacy policy can
+              be found here:{' '}
+              <a href="https://akismet.com/privacy/">
+                https://akismet.com/privacy/
+              </a>
+              . I don't use your Gravatar but will publish whatever name you put
+              in the form and the date and, as you might expect, the comment.
+              The data is stored on the WordPress install on WP Engine. I have
+              to manually approve comments, they won't show up immediately.
             </Styled.p>
             <form
               sx={{ variant: `forms.main` }}
-              onSubmit={( (e) => {
+              onSubmit={e => {
                 e.preventDefault()
                 this.setState({ commentStatus: 'loading' })
                 createComment()
-              })}
+              }}
             >
-                <input type="hidden" name="botField" />
-                <div className="field">
-                  <label htmlFor="userName">Name</label>
+              <input type="hidden" name="botField" />
+              <div className="field">
+                <label htmlFor="userName">Name</label>
+                <input
+                  type="text"
+                  name="userName"
+                  id="userName"
+                  value={this.state.userName}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+              <div className="field">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+              <div className="field">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows="6"
+                  value={this.state.message}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+              <ul className="actions">
+                <li>
                   <input
-                    type="text"
-                    name="userName"
-                    id="userName"
-                    value={this.state.userName}
-                    onChange={this.handleInputChange}
+                    type="submit"
+                    onClick={createComment}
+                    value="Send Message"
+                    className="special"
                   />
-                </div>
-                <div className="field">
-                  <label htmlFor="email">Email</label>
+                </li>
+                <li>
                   <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    value={this.state.email}
-                    onChange={this.handleInputChange}
+                    type="reset"
+                    value="Clear"
+                    onClick={this.handleClear}
                   />
-                </div>
-                <div className="field">
-                  <label htmlFor="message">Message</label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows="6"
-                    value={this.state.message}
-                    onChange={this.handleInputChange}
-                  />
-                </div>
-                <ul className="actions">
-                  <li>
-                    <input type="submit" onClick={createComment} value="Send Message" className="special" />
-                  </li>
-                  <li>
-                    <input type="reset" value="Clear" onClick={this.handleClear} />
-                  </li>
-                </ul>
-              </form>
-            </>
+                </li>
+              </ul>
+            </form>
+          </>
         )}
       </Mutation>
     )
