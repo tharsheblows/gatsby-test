@@ -1,7 +1,9 @@
+require('dotenv').config({
+  path: '.env',
+})
+
 module.exports = options => {
-  const {
-    wordPressUrl = `https://idontthink.wpengine.com`,
-  } = options
+  const { wordPressUrl = `https://idontthink.wpengine.com` } = options
 
   return {
     siteMetadata: {
@@ -30,6 +32,10 @@ module.exports = options => {
           fieldName: `wpgraphql`,
           // Url to query from
           url: `${wordPressUrl}/graphql`,
+          headers: {
+            // Learn about environment variables: https://gatsby.dev/env-vars
+            Authorization: `Bearer ${process.env.WP_GRAPHQL_TOKEN}`,
+          },
         },
       },
       {

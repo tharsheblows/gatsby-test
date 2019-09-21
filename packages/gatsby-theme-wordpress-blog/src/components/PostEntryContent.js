@@ -14,8 +14,8 @@ const PostEntryContent = ({ post, location, wordPressUrl }) => {
     <Styled.root
       sx={{
         a: {
-		  variant: 'links.decorated',
-		  color: `primaryLight`,
+          variant: 'links.decorated',
+          color: `primaryLight`,
         },
       }}
       className="entry-content"

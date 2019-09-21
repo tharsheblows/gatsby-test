@@ -28,7 +28,9 @@ const GET_POSTS = `
             id
             uri
             postId
-            title
+			title
+			content(format: RAW)
+			guid
           }
       }
   }
@@ -80,6 +82,8 @@ module.exports = async ({ actions, graphql }, options) => {
      * Fetch posts using the GET_POSTS query and the variables passed in.
      */
     return await graphql(GET_POSTS, variables).then(({ data }) => {
+      console.log('fetchPosts data')
+      console.log(data.wpgraphql.posts.nodes)
       /**
        * Extract the data from the GraphQL query results
        */
@@ -169,8 +173,8 @@ module.exports = async ({ actions, graphql }, options) => {
           path: `/${postsPrefix}/${post.uri}/`,
           component: postTemplate,
           context: {
-			...post,
-			options,
+            ...post,
+            options,
             prev: allPosts[index + 1],
             next: allPosts[index - 1],
           },

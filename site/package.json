@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@alexadark/gatsby-theme-wordpress-blog": "^2.0.0",
+		"@wordpress/rich-text": "^3.7.0",
 		"apollo-boost": "^0.4.4",
 		"gatsby": "^2.1.27",
 		"graphql-tag": "^2.10.1",
