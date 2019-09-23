@@ -41,16 +41,18 @@ module.exports = async ({ actions, graphql }, options) => {
 
   await fetchUsers({ first: 100, after: null }).then(allUsers => {
     allUsers.map(tag => {
-      console.log(`create tag: ${tag.slug}`)
+      if (tag) {
+        console.log(`create tag: ${tag.slug}`)
 
-      createPage({
-        path: `/author/${tag.slug}`,
-        component: userTemplate,
-        context: {
-          id: tag.id,
-          options,
-        },
-      })
+        createPage({
+          path: `/author/${tag.slug}`,
+          component: userTemplate,
+          context: {
+            id: tag.id,
+            options,
+          },
+        })
+      }
     })
   })
 }
