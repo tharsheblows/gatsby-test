@@ -98,12 +98,21 @@ export const h6 = {
 }
 
 export const img = {
-	height: 'auto',
+  height: 'auto',
 }
 
 export const figure = {
-	maxWidth: '100%',
-	marginLeft: 0,
+  maxWidth: '100%',
+  background: `#242c39`,
+  padding: `1em`,
+  textAlign: `center`,
+  color: tailwind.colors.body,
+  borderRadius: `5px`,
+}
+
+export const figcaption = {
+  fontSize: `0.8em`,
+  marginTop: `1em`,
 }
 
 export const base = {
@@ -120,4 +129,5 @@ export const base = {
   h6,
   img,
   figure,
+  figcaption,
 }

@@ -1,4 +1,4 @@
-import { htmlparser2 } from 'htmlparser2'
+import { parse } from '@wordpress/block-serialization-default-parser'
 
 export const createLocalLinksInContent = (html, wordPressUrl, prefix = '') => {
   //Is there a better way to do this? Rather than sequentially?
@@ -10,6 +10,7 @@ export const createLocalLinksInContent = (html, wordPressUrl, prefix = '') => {
       html = html.replace(wordPressUrl, `/${prefix}`)
     }
   }
+  //console.log(parse(html))
   return html
 }
 
