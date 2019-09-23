@@ -2,7 +2,6 @@
 import { jsx, Styled } from 'theme-ui'
 import ContactForm from './ContactForm'
 import { replace, regexp } from '@wordpress/shortcode'
-import { create, toHTMLString, applyFormat } from '@wordpress/rich-text'
 
 import sanitizeHtml from 'sanitize-html'
 
