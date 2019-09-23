@@ -23,7 +23,9 @@ const Layout = ({ children }) => (
       }}
     >
       <Header sx={{ width: `100%`, flex: `1 1 auto` }} />
-      <Container sx={{ maxWidth: `l`, padding: [1,2,4] }}>{children}</Container>
+      <Container sx={{ maxWidth: `l`, padding: [1, 2, 4] }}>
+        {children}
+      </Container>
       <Footer sx={{ width: `100%` }} />
     </StyledLayout>
   </>

@@ -29,7 +29,8 @@ const GET_POSTS = `
             uri
             postId
 			title
-			content
+			content(format:RAW)
+			excerpt
 			guid
           }
       }
