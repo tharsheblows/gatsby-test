@@ -5,13 +5,14 @@ import Layout from '../../components/Layout'
 import SEO from '../../components/Seo'
 import PageEntry from '../../components/PageEntry'
 
-const Page = ({ data }) => {
+const Page = ({ data, pageContext }) => {
   const { title, content, excerpt } = data.wpgraphql.page
+  const { wordPressUrl } = pageContext.options
 
   return (
     <Layout>
       <SEO title={title} description={excerpt} />
-      <PageEntry title={title} content={content} />
+      <PageEntry title={title} content={content} wordPressUrl={wordPressUrl} />
     </Layout>
   )
 }

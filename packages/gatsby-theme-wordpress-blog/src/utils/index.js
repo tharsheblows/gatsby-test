@@ -2,7 +2,7 @@ import { parse } from '@wordpress/block-serialization-default-parser'
 
 import { getLocalBlock } from '../wp-blocks'
 
-export const createLocalLinksInContent = (html, wordPressUrl, prefix = '') => {
+export const parseContent = (html, wordPressUrl, prefix = '') => {
   //Is there a better way to do this? Rather than sequentially?
   // First clean up the links.
   let finalHtml = ''

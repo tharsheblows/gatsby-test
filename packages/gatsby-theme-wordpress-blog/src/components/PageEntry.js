@@ -4,8 +4,9 @@ import ContactForm from './ContactForm'
 import { replace, regexp } from '@wordpress/shortcode'
 
 import sanitizeHtml from 'sanitize-html'
+import { parseContent } from '../utils'
 
-const PageEntry = ({ content, title }) => {
+const PageEntry = ({ content, title, wordPressUrl }) => {
   // This is kind of ugly. What I'm going to do is this: if there's a contact-form shortcode on the pageEntry.
   // I think what I want is here but I'm going to do it this way. FOR NOW.
   // https://github.com/WordPress/gutenberg/blob/81d5569428ef12a01adb352e2461ba0ace4b6a5e/packages/blocks/src/api/raw-handling/shortcode-converter.js
@@ -18,6 +19,8 @@ const PageEntry = ({ content, title }) => {
         },
       })
     : content
+
+  let parsedFinalContent = parseContent(finalContent, wordPressUrl, 'posts')
   // and maybe add the contact form underneath the content.
   const maybeContactForm = hasContactForm ? <ContactForm /> : ''
 
@@ -32,7 +35,7 @@ const PageEntry = ({ content, title }) => {
           className="page-title"
           dangerouslySetInnerHTML={{ __html: title }}
         />
-        <Styled.root dangerouslySetInnerHTML={{ __html: finalContent }} />
+        <Styled.root dangerouslySetInnerHTML={{ __html: parsedFinalContent }} />
       </div>
       {maybeContactForm}
     </div>
