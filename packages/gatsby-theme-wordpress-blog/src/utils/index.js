@@ -6,7 +6,7 @@ export const parseContent = (html, wordPressUrl, prefix = '') => {
   //Is there a better way to do this? Rather than sequentially?
   // First clean up the links.
   let finalHtml = ''
-  const blocks = parse(html)
+  const blocks = html ? parse(html) : {}
   for (const block in blocks) {
     if (blocks.hasOwnProperty(block)) {
       // This probably doesn't handle inner blocks.

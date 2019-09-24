@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import React from 'react'
 
 import { Component } from '@wordpress/element'
-import { circleTextStyles } from './circle-text-styles.js'
+import { circleTextStyles } from './styles.js'
 
 class MJJCircleText extends Component {
   constructor(props) {

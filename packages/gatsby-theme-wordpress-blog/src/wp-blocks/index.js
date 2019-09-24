@@ -1,5 +1,5 @@
 import { circleText } from './circle-text'
-import MJJCircleText from './circle-text/MJJCircleText'
+import { codeHighlighting } from './code-highlighting'
 import React from 'react'
 
 export function getLocalBlock(block) {
@@ -8,6 +8,9 @@ export function getLocalBlock(block) {
   switch (blockName) {
     case 'mjj-why/circle-text':
       html += circleText(attrs)
+      break
+    case 'mjj-why/code-highlighting':
+      html += codeHighlighting(attrs)
       break
   }
   return html
