@@ -55,7 +55,6 @@ export class MJJCodeHighlighting extends Component {
     let languageClassName = 'language-' + language
     let headerClassName = 'language-header ' + language
     let languageHeading = language.toUpperCase()
-    console.log('inrender')
     return (
       <div className="mjj-code-highlighting">
         <div className={headerClassName}>{languageHeading}</div>

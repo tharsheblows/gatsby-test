@@ -23,7 +23,9 @@ const Layout = ({ children }) => (
       }}
     >
       <Header sx={{ width: `100%`, flex: `1 1 auto` }} />
-      <Container sx={{ maxWidth: `l`, padding: [1, 2, 4] }}>
+      <Container
+        sx={{ maxWidth: `l`, padding: [1, 2, 4], variant: `coreBlocks` }}
+      >
         {children}
       </Container>
       <Footer sx={{ width: `100%` }} />

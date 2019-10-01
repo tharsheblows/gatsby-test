@@ -1,7 +1,15 @@
 import { dark } from '@theme-ui/presets'
+import '../wp-blocks/styles.min.css' // This is pretty ugly, just importing it like this.
 
 import colors from './colors'
-import { fonts, fontSizes, fontWeights, lineHeights, base } from './typo'
+import {
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  base,
+  blockquote,
+} from './typo'
 import { space } from './space'
 import { sizes } from './sizes'
 import {
@@ -13,6 +21,7 @@ import {
   pageNumbers,
   gradients,
   forms,
+  coreBlocks,
 } from './components'
 
 export default {
@@ -58,4 +67,5 @@ export default {
   pagination,
   pageNumbers,
   gradients,
+  coreBlocks,
 }

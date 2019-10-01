@@ -12,7 +12,6 @@ class MJJCircleText extends Component {
 
   render() {
     let attributes = this.props.attributes
-    console.log(circleTextStyles)
     return (
       // templatestart
       <div>

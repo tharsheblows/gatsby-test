@@ -1,4 +1,6 @@
 import { tailwind } from '@theme-ui/presets'
+import { borderRadius } from './sharedStyles'
+import { gradients } from './components/gradients'
 
 export const fonts = {
   body: 'Inconsolata, monospace',
@@ -113,6 +115,17 @@ export const figure = {
 export const figcaption = {
   fontSize: `0.8em`,
   marginTop: `1em`,
+  color: `white`,
+}
+
+export const blockquote = {
+  borderLeft: t => `0.5em solid ${t.colors.primary}`,
+  textAlign: `left`,
+  padding: `0.75em 2em`,
+  borderRadius: borderRadius,
+  p: {
+    marginTop: `0`,
+  },
 }
 
 export const base = {
@@ -130,4 +143,5 @@ export const base = {
   img,
   figure,
   figcaption,
+  blockquote,
 }
