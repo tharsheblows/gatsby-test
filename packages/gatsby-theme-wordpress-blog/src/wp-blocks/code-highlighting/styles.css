@@ -3,22 +3,21 @@
  * Inspired by Visual Studio syntax coloring
  */
 
-code[class*='language-'],
-pre[class*='language-'] {
+.mjj-code-highlighting code[class*='language-'],
+.mjj-code-highlighting pre[class*='language-'] {
   color: #393a34;
-  font-family: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', Courier,
-    monospace;
+  font-family: Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  font-size: 0.95em;
   line-height: 1.2em;
+  background: white;
 
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
 
   -webkit-hyphens: none;
   -moz-hyphens: none;
@@ -42,7 +41,7 @@ code[class*='language-'] ::selection {
 
 /* Code blocks */
 pre[class*='language-'] {
-  padding: 1em;
+  padding: 0.5em;
   margin: 0;
   overflow: auto;
   border: 1px solid #dddddd;

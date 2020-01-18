@@ -15,8 +15,8 @@ const Header = () => {
     query SiteTitleQuery {
       wpgraphql {
         generalSettings {
-		  title
-		  url
+          title
+          url
         }
       }
     }
@@ -24,11 +24,11 @@ const Header = () => {
 
   const { title, url } = data.wpgraphql.generalSettings
   return (
-    <Headroom sx={{ zIndex: "100" }}>
+    <Headroom sx={{ zIndex: '100' }}>
       <StyledHeader
         sx={{
           bg: `background`,
-          boxShadow: `default`,
+          // boxShadow: t => `0 0 5px 1px ${t.colors.shadeBlue}`,
           '.bm-burger-button': {
             position: 'relative',
             width: '20px',
@@ -43,10 +43,10 @@ const Header = () => {
                 opacity: 1,
               },
             },
-		  },
-		  '.bm-menu-wrap': {
-			  variant: `gradients.secondary`
-		  },
+          },
+          '.bm-menu-wrap': {
+            variant: `gradients.secondary`,
+          },
           '.bm-burger-bars': {
             background: `white`,
             transition: `all .4s ease-in-out`,
@@ -65,21 +65,21 @@ const Header = () => {
               <Menu wordPressUrl={url} />
             </div>
             <SlideMenu
-			  right
+              right
               width={'auto'}
               sx={{
                 bg: `secondary`,
                 color: `primary`,
-				top: 0,
+                top: 0,
                 height: `100vh !important`,
                 ul: {
-					marginRight: `40px`,
-				},
+                  marginRight: `40px`,
+                },
                 a: {
-				  color: `white`,
-				  ':active': {
-					  color: `primaryLight`
-				  }
+                  color: `white`,
+                  ':active': {
+                    color: `primaryLight`,
+                  },
                 },
                 fontSize: 2,
                 fontFamily: `heading`,

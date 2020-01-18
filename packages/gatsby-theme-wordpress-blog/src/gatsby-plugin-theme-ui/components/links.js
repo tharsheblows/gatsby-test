@@ -10,8 +10,8 @@ export const links = {
 
     ':after': {
       content: `""`,
-      width: `50%`,
-      height: `50%`,
+      width: `60%`,
+      height: `20%`,
       position: `absolute`,
       left: `-5px`,
       bottom: 0,

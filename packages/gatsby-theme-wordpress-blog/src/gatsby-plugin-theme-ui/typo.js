@@ -54,10 +54,10 @@ const heading = {
 
 export const a = {
   ...transition,
-  color: 'text',
+  color: 'primary',
   textDecoration: 'none',
   '&:hover': {
-    color: 'primary',
+    color: 'secondary',
   },
 }
 
@@ -105,7 +105,7 @@ export const img = {
 
 export const figure = {
   maxWidth: '100%',
-  background: `#242c39`,
+  background: tailwind.colors.gray[7],
   padding: `1em`,
   textAlign: `center`,
   color: tailwind.colors.body,
@@ -128,6 +128,12 @@ export const blockquote = {
   },
 }
 
+export const code = {
+  fontSize: [`1.3rem`, `1.5rem`],
+  background: tailwind.colors.gray[3],
+  fontFamily: 'Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace',
+}
+
 export const base = {
   ...tailwind.styles.root,
   fontSize: [1, 2],
@@ -144,4 +150,5 @@ export const base = {
   figure,
   figcaption,
   blockquote,
+  code,
 }

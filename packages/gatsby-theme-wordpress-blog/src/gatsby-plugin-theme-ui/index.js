@@ -1,4 +1,4 @@
-import { dark } from '@theme-ui/presets'
+import { roboto } from '@theme-ui/presets'
 import '../wp-blocks/styles.min.css' // This is pretty ugly, just importing it like this.
 
 import colors from './colors'
@@ -25,7 +25,7 @@ import {
 } from './components'
 
 export default {
-  ...dark,
+  ...roboto,
   colors,
   fonts,
   fontSizes,
@@ -34,18 +34,18 @@ export default {
   space,
   sizes,
   shadows: {
-    ...dark.shadows,
+    ...roboto.shadows,
     default: `0px 1px 10px rgba(0,0,0,0.05)`,
     hover: `0px 10px 20px rgba(0,0,0,0.25)`,
   },
 
   breakpoints: [`600px`, `900px`, `1200px`],
   radii: {
-    ...dark.radii,
+    ...roboto.radii,
     xl: `1rem`,
   },
   styles: {
-    ...dark.styles,
+    ...roboto.styles,
     ...base,
     root: base,
     Footer: {

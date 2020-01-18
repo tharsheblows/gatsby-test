@@ -11,7 +11,7 @@ const PostEntryContent = ({ post, location, wordPressUrl }) => {
       sx={{
         a: {
           variant: 'links.decorated',
-          color: `primaryLight`,
+          color: `primary`,
         },
       }}
       className="entry-content"

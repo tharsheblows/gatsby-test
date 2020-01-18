@@ -138,7 +138,7 @@ export const GlobalStyles = css`
       /* Android 4+ */ Roboto Mono, /* Ubuntu 10.10+ */ Ubuntu Monospace,
       /* KDE Plasma 4+ */ Oxygen Mono,
       /* Linux/OpenOffice fallback */ Liberation Mono, /* fallback */ monospace; /* 1 */
-    font-size: 1em; /* 2 */
+    font-size: 1.8rem; /* 2 */
   }
   /**
 * Add the correct font size in all browsers.
