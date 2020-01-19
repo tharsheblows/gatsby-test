@@ -9,8 +9,7 @@ import CREATE_COMMENT from '../utils/createComment'
 // also if this starts failing, watch for change from post id to Relay global ID https://github.com/wp-graphql/wp-graphql/issues/532 .
 
 export default class CommentForm extends React.Component {
-
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       userName: '',
@@ -23,7 +22,7 @@ export default class CommentForm extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     const target = e.target
     const value = target.value
     const name = target.name
@@ -41,10 +40,10 @@ export default class CommentForm extends React.Component {
     }
   }
 
-	// Renders the comment form elements.
-	renderCommentForm() {
+  // Renders the comment form elements.
+  renderCommentForm() {
     const { userName, message, email } = this.state
-		return (
+    return (
       // Wrap it in our mutation.
       // This needs to be cleaned up but for now it's easier to see if it's all in one place.
       // Except for the mutation I guess. It's in utils, maybe it should be somewhere else?
@@ -75,8 +74,7 @@ export default class CommentForm extends React.Component {
         {createComment => (
           <>
             <Styled.h3>Leave a comment</Styled.h3>
-            <Styled.p
-				sx={{ a: { variant: `links.decorated` }, color: `lightDarker` }}>
+            <Styled.p sx={{ a: { variant: `links.decorated` }, color: `text` }}>
               Your email address is required although it will not be shown
               publicly. All comments go through Akismet whose privacy policy can
               be found here:{' '}
@@ -152,16 +150,16 @@ export default class CommentForm extends React.Component {
   }
 
   render() {
-             // Check comment status from component state and display messages or form.
-             switch (this.state.commentStatus) {
-               case 'success':
-                 return 'Your comment has been successfully submitted.'
-               case 'loading':
-                 return 'Please wait. Your comment is being submitted.'
-               case 'error':
-                 return 'There was an error in your submission. Please try again later.'
-               default:
-                 return this.renderCommentForm()
-             }
-           }
+    // Check comment status from component state and display messages or form.
+    switch (this.state.commentStatus) {
+      case 'success':
+        return 'Your comment has been successfully submitted.'
+      case 'loading':
+        return 'Please wait. Your comment is being submitted.'
+      case 'error':
+        return 'There was an error in your submission. Please try again later.'
+      default:
+        return this.renderCommentForm()
+    }
+  }
 }

@@ -7,7 +7,7 @@ export default {
   backgroundLight: tailwind.colors.gray[0],
   shadeBlue: tailwind.colors.blue[3],
   shadePink: tailwind.colors.pink[3],
-  primaryLight: tailwind.colors.pink[9],
+  primaryLight: tailwind.colors.blue[9],
   //  textMuted: `#667488`,
   //  text: `#444`,
   grayDark: tailwind.colors.gray[1],

@@ -17,7 +17,7 @@ export const buttons = {
   primary: {
     ...sharedButtonStyles,
     borderRadius: 5,
-    variant: `gradients.primary`,
+    variant: `gradients.secondary`,
     fontSize: 1,
     px: 2,
     py: 1,
@@ -25,7 +25,8 @@ export const buttons = {
   secondary: {
     ...sharedButtonStyles,
     borderRadius: 5,
-    variant: `gradients.secondary`,
+    variant: `gradients.primary`,
+    color: `white`,
     fontSize: 1,
     px: 2,
     py: 1,
