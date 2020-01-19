@@ -32,16 +32,19 @@ export const parseContent = (html, wordPressUrl, prefix = '') => {
 // This switches the install links to the netlify links
 let createLocalLinks = (html, wordPressUrl, prefix = '') => {
   const regex = /href\s*=\s*(['"])(https?:\/\/.+?)(img)?(src=['"]https?:\/\/.+?)?(\/a>)/gi
-  const isImgHttps = /(http(s?):)([\/|.|\w|\s|-])*\.(?:jpg|gif|png)/gi
+  const isImgHttps = /src=(['"])(http(s?):)([\/|.|\w|\s|-])*\.(?:jpg|gif|png)/gi
   let link
   while ((link = regex.exec(html)) !== null) {
     if (link[2].includes(wordPressUrl) && link[4] === undefined) {
       html = html.replace(wordPressUrl, `/${prefix}`)
     }
   }
-  while ((link = isImgHttps.exec(html)) !== null) {
-    if (link[1].includes('http:')) {
-      html = html.replace('http:', 'https:')
+  let src
+  while ((src = isImgHttps.exec(html)) !== null) {
+    if (src[2].includes('http:')) {
+      let quoted = `src=${src[1]}http:`
+      let quotedRE = new RegExp(quoted, 'g')
+      html = html.replace(quotedRE, 'src=' + src[1] + 'https:')
     }
   }
   return html
