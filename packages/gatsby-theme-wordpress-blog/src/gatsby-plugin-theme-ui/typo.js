@@ -62,7 +62,7 @@ export const a = {
 }
 
 export const p = {
-  fontSize: [1, 2],
+  fontSize: [2],
   letterSpacing: `-0.003em`,
   lineHeight: `body`,
 }

@@ -39,16 +39,16 @@ const Header = () => {
             ':hover': {
               cursor: `pointer`,
               '.bm-burger-bars': {
-                background: t => t.colors.shadeBlue,
+                background: t => t.colors.secondary,
                 opacity: 1,
               },
             },
           },
           '.bm-menu-wrap': {
-            variant: `gradients.secondary`,
+            variant: `gradients.primary`,
           },
           '.bm-burger-bars': {
-            background: `white`,
+            background: t => `${t.colors.primary}`,
             transition: `all .4s ease-in-out`,
           },
           'div:nth-child(3)': {
@@ -56,7 +56,7 @@ const Header = () => {
           },
         }}
       >
-        <Container sx={{ py: [3, 1] }}>
+        <Container sx={{ p: [1] }}>
           <Flex sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
             <SiteBranding title={title} />
             <div
@@ -66,7 +66,7 @@ const Header = () => {
             </div>
             <SlideMenu
               right
-              width={'auto'}
+              width={'100%'}
               sx={{
                 bg: `secondary`,
                 color: `primary`,
@@ -80,17 +80,21 @@ const Header = () => {
                   ':active': {
                     color: `primaryLight`,
                   },
+                  ':focus': {
+                    color: t => t.colors.shadeBlue,
+                  },
                 },
-                fontSize: 2,
+                fontSize: 4,
                 fontFamily: `heading`,
                 '.sub-menu': {
                   pl: 1,
                   '.menu-item': {
-                    fontSize: 1,
+                    fontSize: 2,
                   },
                 },
                 '.bm-cross-button': {
                   cursor: `pointer`,
+                  fontSize: 3,
                 },
                 '.bm-cross': {
                   bg: `white`,

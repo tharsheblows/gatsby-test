@@ -9,8 +9,9 @@ const Footer = () => (
         maxWidth: `l`,
         textAlign: 'center',
         fontSize: 1,
+        color: `text`,
         a: {
-          color: 'primaryLight',
+          color: t => t.colors.primary,
           textDecoration: 'underline',
           '&:hover': {
             color: 'primary',

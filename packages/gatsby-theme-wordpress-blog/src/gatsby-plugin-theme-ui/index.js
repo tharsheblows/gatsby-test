@@ -26,6 +26,7 @@ import {
 
 export default {
   ...roboto,
+  blockquote,
   colors,
   fonts,
   fontSizes,
