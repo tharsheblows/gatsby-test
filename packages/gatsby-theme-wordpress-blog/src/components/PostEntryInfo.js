@@ -7,8 +7,7 @@ const PostEntryInfo = ({ post }) => {
   const { date } = post
   return (
     <div className="entry-info" sx={{ fontSize: 1, mb: 1 }}>
-        Posted on: <Date date={date} /> by{' '}
-      <Author post={post} />
+      Posted on: <Date date={date} /> by <Author post={post} />
     </div>
   )
 }

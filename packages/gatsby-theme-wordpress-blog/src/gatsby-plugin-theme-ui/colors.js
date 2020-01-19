@@ -1,6 +1,6 @@
-import { swiss, tailwind } from '@theme-ui/presets'
+import { future, tailwind } from '@theme-ui/presets'
 export default {
-  ...swiss.colors,
+  ...future.colors,
   primary: tailwind.colors.blue[6],
   secondary: tailwind.colors.pink[6],
   background: tailwind.colors.gray[1],
@@ -8,7 +8,7 @@ export default {
   shadeBlue: tailwind.colors.blue[3],
   shadePink: tailwind.colors.pink[3],
   primaryLight: tailwind.colors.blue[9],
-  //  textMuted: `#667488`,
+  textMuted: tailwind.colors.gray[8],
   //  text: `#444`,
   grayDark: tailwind.colors.gray[1],
   //   dark: tailwind.colors.gray[7],
