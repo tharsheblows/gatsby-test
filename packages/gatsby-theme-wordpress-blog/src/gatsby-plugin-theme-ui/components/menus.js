@@ -20,14 +20,14 @@ export const menus = {
         fontFamily: 'heading',
         textTransform: 'uppercase',
         transition: transitions[1],
-        boxShadow: `0 0 1px 1px white`,
+        borderBottom: `1px solid transparent`,
         '&:hover': {
           color: `primary`,
         },
       },
       a: {
         '&:hover': {
-          boxShadow: t => ` 0 4px 2px -2px  ${t.colors.secondary}`,
+          borderBottom: t => `1px solid  ${t.colors.secondary}`,
         },
       },
       '.sub-menu': {
