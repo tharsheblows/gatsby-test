@@ -26,7 +26,7 @@ const PostEntry = ({ post, location, options }) => {
           post={post}
           wordPressUrl={wordPressUrl}
         />
-        <div className="entry-footer" sx={{ color: `textMuted` }}>
+        <div className="entry-footer">
           <PostEntryInfo className="entry-info" post={post} />
           <PostEntryMeta post={post} location={location} />
         </div>

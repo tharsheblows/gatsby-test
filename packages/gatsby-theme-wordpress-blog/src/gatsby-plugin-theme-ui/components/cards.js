@@ -29,8 +29,6 @@ export const cards = {
   },
   muted: {
     ...sharedCardStyles,
-    bg: `grayDark`,
-    borderColor: `backgroundLight`,
   },
   lessMuted: {
     ...sharedCardStyles,
