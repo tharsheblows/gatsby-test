@@ -9,7 +9,7 @@ export const wrapRootElement = ({ element }) => {
   const client = new ApolloClient({
     fetch,
     // Change this to your GraphQL endpoint.
-    uri: "http://idontthink.wpengine.com/graphql",
+    uri: "https://idontthink.wpengine.com/graphql",
   })
 
   // Wrap the element.
