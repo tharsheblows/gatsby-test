@@ -5,9 +5,5 @@
 	"workspaces": [
 		"site",
 		"packages/*"
-	],
-	"dependencies": {
-		"@alexadark/gatsby-theme-wordpress-blog": "^2.0.0",
-		"gatsby-plugin-global-context": "^1.0.0"
-	}
+	]
 }
