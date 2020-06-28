@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `I don't think it works like that`,
-    description: `Edited by @tharsheblows, any issues and lack of styling is all me.`,
-    author: `@gatsbyjs,@alexadark`,
+    description: `Porchy Ltd theme.`,
+    author: `@gatsbyjs,@alexadark,@tharsheblows`,
   },
   plugins: [
     {
-      resolve: `@alexadark/gatsby-theme-wordpress-blog`,
+      resolve: `@tharsheblows/porchy-ltd-theme`,
       options: {
         wordPressUrl: `https://idontthink.wpengine.com`,
         postsPrefix: `posts`,

@@ -1,0 +1,20 @@
+import { future, tailwind } from '@theme-ui/presets'
+export default {
+  ...future.colors,
+  primary: tailwind.colors.blue[6],
+  secondary: tailwind.colors.pink[6],
+  background: tailwind.colors.gray[1],
+  backgroundLight: tailwind.colors.gray[0],
+  shadeBlue: tailwind.colors.blue[3],
+  shadePink: tailwind.colors.pink[3],
+  primaryLight: tailwind.colors.blue[9],
+  textMuted: tailwind.colors.gray[8],
+  //  text: `#444`,
+  grayDark: tailwind.colors.gray[1],
+  //   dark: tailwind.colors.gray[7],
+  //   muted: tailwind.colors.gray[5],
+  light: tailwind.colors.gray[3],
+  lightDarker: tailwind.colors.gray[4],
+  grayLighter: `#232b38`,
+  yellow: `yellow`,
+}

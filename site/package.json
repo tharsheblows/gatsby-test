@@ -11,7 +11,7 @@
 		"serve": "gatsby serve"
 	},
 	"dependencies": {
-		"@alexadark/gatsby-theme-wordpress-blog": "^2.0.0",
+		"@tharsheblows/porchy-ltd-theme": "^0.1.0",
 		"@wordpress/block-library": "^2.9.0",
 		"@wordpress/block-serialization-default-parser": "^3.4.0",
 		"@wordpress/blocks": "^6.7.0",
