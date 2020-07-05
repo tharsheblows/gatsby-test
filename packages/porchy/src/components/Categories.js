@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import { Link } from 'gatsby'
 
 const Categories = ({ post }) => {
@@ -10,7 +10,6 @@ const Categories = ({ post }) => {
         <span
           sx={{
             fontSize: 1,
-            letterSpacing: 1,
             mr: 1,
           }}
         >
@@ -18,14 +17,16 @@ const Categories = ({ post }) => {
         </span>
       )}
       {categories.map(cat => (
+
           <Link
-            sx={{variant: `links.decorated`}}
+            sx={{variant: `links.decoratedSpaced`}}
             to={`/category/${cat.slug}`}
             key={cat.id}
             aria-label={`visit category ${cat.name} page`}
           >
             {cat.name}
           </Link>
+
       ))}
     </div>
   )

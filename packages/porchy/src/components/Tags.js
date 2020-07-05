@@ -12,7 +12,6 @@ const Tags = ({ post }) => {
             color: 'muted',
             fontSize: 1,
             fontFamily: `heading`,
-            letterSpacing: 1,
             mr: 1,
           }}
         >

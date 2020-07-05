@@ -7,17 +7,17 @@ module.exports = options => {
 
   return {
     siteMetadata: {
-      title: `Gatsby theme WordPress Source Demo`,
-      author: `@alexadark`,
-      description: `Demo of a WordPress source theme for GatsbyJS. Uses WPGraphQL (GraphQL for WordPress).`,
+      title: `Porchy Ltd Gatsby Theme`,
+      author: `@tharsheblows,@alexadark`,
+      description: `Theme for Porchy Ltd.`,
       social: [
         {
           name: `twitter`,
-          url: `https://twitter.com/alexadark`,
+          url: `https://twitter.com/tharsheblows`,
         },
         {
           name: `github`,
-          url: `https://github.com/alexadark`,
+          url: `https://github.com/tharsheblows`,
         },
       ],
     },
@@ -37,14 +37,7 @@ module.exports = options => {
             Authorization: `Bearer ${process.env.WP_GRAPHQL_TOKEN}`,
           },
         },
-      },
-      {
-        resolve: `gatsby-plugin-google-fonts`,
-        options: {
-          fonts: [`Inconsolata\:400, 700`, `Oswald\:200,300,400,500,600,700`],
-          display: 'swap',
-        },
-      },
+	  },
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,

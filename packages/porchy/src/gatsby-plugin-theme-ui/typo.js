@@ -1,10 +1,10 @@
 import { tailwind } from '@theme-ui/presets'
 import { borderRadius } from './sharedStyles'
-import { gradients } from './components/gradients'
+
 
 export const fonts = {
-  body: 'Inconsolata, monospace',
-  heading: 'Oswald, sans-serif',
+  body: 'LeagueSpartanVariable, sans-serif',
+  heading: 'AppleTea, sans-serif',
 }
 const transition = {
   transition: 'all .4s ease-in-out',
@@ -17,15 +17,15 @@ export const fontWeights = {
 }
 
 export const fontSizes = [
+  '0.8rem',
+  '1.0rem',
   '1.2rem',
+  '1.4rem',
   '1.6rem',
   '1.8rem',
+  '2rem',
+  '2.2rem',
   '2.4rem',
-  '3rem',
-  '3.6rem',
-  '4.8rem',
-  '6.4rem',
-  '7.2rem',
 ]
 
 export const baseLineHeights = {
