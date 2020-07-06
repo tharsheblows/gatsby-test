@@ -7,6 +7,7 @@
 .mjj-code-highlighting pre[class*='language-'] {
   color: #393a34;
   font-family: Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
+  font-size: 1rem;
   direction: ltr;
   text-align: left;
   white-space: pre;

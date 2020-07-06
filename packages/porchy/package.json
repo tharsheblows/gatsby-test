@@ -15,7 +15,6 @@
     "gatsby-transformer-sharp": "^2.2.5",
     "moment": "^2.24.0",
 	"node-html-parser": "^1.1.16",
-	"react": "^16.8.6",
     "react-burger-menu": "^2.6.11",
     "react-headroom": "^2.2.8",
     "react-helmet": "^5.2.1",

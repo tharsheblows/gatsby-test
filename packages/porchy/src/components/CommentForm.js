@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import { useState } from 'react'
+import { React, useState } from 'react'
 import { Mutation } from 'react-apollo'
 import CREATE_COMMENT from '../utils/createComment'
 
@@ -50,7 +50,7 @@ const CommentForm = ( props ) => {
         }}
       >
         {createComment => (
-          <>
+          <div>
             <Styled.h3>Leave a comment</Styled.h3>
             <Styled.p sx={{ a: { variant: `links.decorated` }, color: `text` }}>
               Your email address is required although it will not be shown
@@ -126,7 +126,7 @@ const CommentForm = ( props ) => {
                 </li>
               </ul>
             </form>
-          </>
+          </div>
         )}
       </Mutation>
 

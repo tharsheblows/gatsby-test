@@ -1,16 +1,5 @@
-// https://docs.wpgraphql.com/getting-started/comments
-//createComment(input:
-// {author: "me",
-//  content: "This is a comment ",
-// authorEmail: "jjjay@mac.com",
-//  commentOn: 2074,
-// clientMutationId: "weoriuwqeoiu"}) {
-  //   success
-  //   clientMutationId
-  // }
-
 import gql from 'graphql-tag'
-
+// https://docs.wpgraphql.com/getting-started/comments
 const CREATE_COMMENT = gql`
   # Define our query variables
 	mutation CREATE_COMMENT($input: CreateCommentInput!) {
