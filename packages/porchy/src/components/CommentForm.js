@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import React from 'react'
+import { useState } from 'react'
 import { Mutation } from 'react-apollo'
 import CREATE_COMMENT from '../utils/createComment'
 
@@ -8,42 +8,20 @@ import CREATE_COMMENT from '../utils/createComment'
 // interesting convo: https://github.com/wp-graphql/wp-graphql/issues/827 .
 // also if this starts failing, watch for change from post id to Relay global ID https://github.com/wp-graphql/wp-graphql/issues/532 .
 
-export default class CommentForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      userName: '',
-      email: '',
-      botField: '',
-      message: '',
-      error: '',
-      commentStatus: false,
-    }
-    this.handleInputChange = this.handleInputChange.bind(this)
-  }
+const CommentForm = ( props ) => {
 
-  handleInputChange = e => {
-    const target = e.target
-    const value = target.value
-    const name = target.name
-    this.setState({
-      error: '',
-      [name]: value,
-    })
-  }
 
-  handleClear = () => {
-    for (const key in this.state) {
-      const stateObj = {}
-      stateObj[key] = ''
-      this.setState(stateObj)
-    }
-  }
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  //const [botField, setBotField] = useState('');
+  const [message, setMessage] = useState('');
+  const [commentStatus, setCommentStatus] = useState(false);
+  const [error, setError] = useState('');
+
+
 
   // Renders the comment form elements.
-  renderCommentForm() {
-    const { userName, message, email } = this.state
-    return (
+ let renderCommentForm =
       // Wrap it in our mutation.
       // This needs to be cleaned up but for now it's easier to see if it's all in one place.
       // Except for the mutation I guess. It's in utils, maybe it should be somewhere else?
@@ -53,18 +31,18 @@ export default class CommentForm extends React.Component {
         variables={{
           input: {
             author: userName,
-            commentOn: this.props.post.postId, // see above, this might change to id at some point.
+            commentOn: props.post.postId, // see above, this might change to id at some point.
             content: message,
             authorEmail: email,
             clientMutationId: 'TSTCreateComment',
           },
         }}
         onCompleted={() => {
-          this.setState({ commentStatus: 'success' })
+          setCommentStatus('success')
         }}
         // Set error state.
         onError={() => {
-          this.setState({ commentStatus: 'error' })
+          setCommentStatus('error')
         }}
         onSubmit={e => {
           e.preventDefault()
@@ -90,7 +68,7 @@ export default class CommentForm extends React.Component {
               sx={{ variant: `forms.main` }}
               onSubmit={e => {
                 e.preventDefault()
-                this.setState({ commentStatus: 'loading' })
+                setCommentStatus('loading')
                 createComment()
               }}
             >
@@ -101,8 +79,8 @@ export default class CommentForm extends React.Component {
                   type="text"
                   name="userName"
                   id="userName"
-                  value={this.state.userName}
-                  onChange={this.handleInputChange}
+                  value={userName}
+                  onChange={e => setUserName(e.target.value)}
                 />
               </div>
               <div className="field">
@@ -111,8 +89,8 @@ export default class CommentForm extends React.Component {
                   type="text"
                   name="email"
                   id="email"
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                 />
               </div>
               <div className="field">
@@ -121,8 +99,8 @@ export default class CommentForm extends React.Component {
                   name="message"
                   id="message"
                   rows="6"
-                  value={this.state.message}
-                  onChange={this.handleInputChange}
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
                 />
               </div>
               <ul className="actions">
@@ -138,7 +116,12 @@ export default class CommentForm extends React.Component {
                   <input
                     type="reset"
                     value="Clear"
-                    onClick={this.handleClear}
+                    onClick={ e => {
+							setMessage('')
+							setCommentStatus(false)
+							setUserName('')
+						}
+					}
                   />
                 </li>
               </ul>
@@ -146,12 +129,8 @@ export default class CommentForm extends React.Component {
           </>
         )}
       </Mutation>
-    )
-  }
 
-  render() {
-    // Check comment status from component state and display messages or form.
-    switch (this.state.commentStatus) {
+  switch (commentStatus) {
       case 'success':
         return 'Your comment has been successfully submitted.'
       case 'loading':
@@ -159,7 +138,8 @@ export default class CommentForm extends React.Component {
       case 'error':
         return 'There was an error in your submission. Please try again later.'
       default:
-        return this.renderCommentForm()
-    }
+        return renderCommentForm
   }
 }
+
+export default CommentForm
