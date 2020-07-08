@@ -2,30 +2,32 @@ import { css } from '@emotion/core'
 
 export const GlobalStyles = css`
   /**
-  * Import the fonts
+  * Import the fonts (or don't, whatever)
+  *
+  *  @font-face {
+  *    font-family: 'AppleTea';
+  *    src: url('/fonts/apple-tea/appletea-z8r1a-webfont.woff2') format('woff2'),
+  *      url('/fonts/apple-tea/appletea-z8r1a-webfont.woff') format('woff'),
+  *      url('/fonts/apple-tea/AppleTea-z8R1a.ttf') format('truetype');
+  *  }
+  *
+  *  @font-face {
+  *    font-family: 'DharkoGilbert';
+  *    src: url('/fonts/dharko-gilbert/dharkogilbert-av8p-webfont.woff2')
+  *        format('woff2'),
+  *      url('/fonts/dharko-gilbert/dharkogilbert-av8p-webfont.woff')
+  *        format('woff'),
+  *      url('/fonts/dharko-gilbert/DharkoGilbert-Av8p.ttf') format('truetype');
+  *  }
+  *
+  *  @font-face {
+  *    font-family: 'LeagueSpartanVariable';
+  *    src: url('/fonts/league-spartan/LeagueSpartanVariable.woff2')
+  *      format('woff2-variations');
+  *    font-weight: 200 900;
+  *  }
   */
-  @font-face {
-    font-family: 'AppleTea';
-    src: url('/fonts/apple-tea/appletea-z8r1a-webfont.woff2') format('woff2'),
-      url('/fonts/apple-tea/appletea-z8r1a-webfont.woff') format('woff'),
-      url('/fonts/apple-tea/AppleTea-z8R1a.ttf') format('truetype');
-  }
 
-  @font-face {
-    font-family: 'DharkoGilbert';
-    src: url('/fonts/dharko-gilbert/dharkogilbert-av8p-webfont.woff2')
-        format('woff2'),
-      url('/fonts/dharko-gilbert/dharkogilbert-av8p-webfont.woff')
-        format('woff'),
-      url('/fonts/dharko-gilbert/DharkoGilbert-Av8p.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'LeagueSpartanVariable';
-    src: url('/fonts/league-spartan/LeagueSpartanVariable.woff2')
-      format('woff2-variations');
-    font-weight: 200 900;
-  }
   /*! sanitize.css v7.0.3 | CC0 License | github.com/csstools/sanitize.css */
   /* Document
 * ========================================================================== */

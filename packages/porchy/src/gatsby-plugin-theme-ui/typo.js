@@ -3,7 +3,7 @@ import { borderRadius } from './sharedStyles'
 import { gradients } from './components/gradients'
 
 export const fonts = {
-  body: 'LeagueSpartanVariable, sans-serif',
+  body: 'Inconsolata, sans-serif',
   heading: 'Oswald, sans-serif',
 }
 const transition = {
