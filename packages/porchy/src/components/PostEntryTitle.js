@@ -22,7 +22,7 @@ const PostEntryTitle = ({ post, location, postsPrefix }) => {
         >
           <Styled.a
             as={Link}
-            to={`${postsPrefix}/${uri}`}
+            to={`/${postsPrefix}/${uri}`}
             dangerouslySetInnerHTML={{ __html: title }}
           />
         </Styled.h1>
