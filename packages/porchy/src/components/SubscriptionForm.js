@@ -43,7 +43,7 @@ const SubscriptionForm = props => {
         padding: `1rem`,
         margin: `1rem auto`,
         width: `50%`,
-        minWidth: `400px`,
+        minWidth: `325px`,
         borderRadius: `10px`,
       }}
     >
