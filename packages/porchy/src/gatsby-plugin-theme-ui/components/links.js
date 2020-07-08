@@ -3,7 +3,7 @@ import { a } from '../typo'
 export const links = {
          decorated: {
            ...a,
-           color: `primary`,
+           color: t => `${t.colors.primaryLight}`,
            position: `relative`,
            zIndex: 1,
            display: `inline-block`,
@@ -11,7 +11,7 @@ export const links = {
            ':after': {
              content: `""`,
              width: `60%`,
-             height: `20%`,
+             height: `10%`,
              position: `absolute`,
              left: `-5px`,
              bottom: 0,
@@ -28,16 +28,16 @@ export const links = {
          },
          decoratedSpaced: {
            ...a,
-           color: `primary`,
+           color: t => `${t.colors.primaryLight}`,
            position: `relative`,
            zIndex: 1,
-		   display: `inline-block`,
-		   margin: `auto 0.5em`,
+           display: `inline-block`,
+           margin: `auto 0.5em`,
 
            ':after': {
              content: `""`,
              width: `60%`,
-             height: `20%`,
+             height: `5%`,
              position: `absolute`,
              left: `-5px`,
              bottom: 0,

@@ -8,6 +8,9 @@ const sharedCardStyles = {
   '.content': {
     p: [2, 1],
   },
+  'h1,h2,h3,h4': {
+	  fontFamily: `heading`
+  }
 }
 
 export const cards = {

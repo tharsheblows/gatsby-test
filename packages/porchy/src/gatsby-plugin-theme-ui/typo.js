@@ -1,11 +1,11 @@
 import { tailwind } from '@theme-ui/presets'
 import { borderRadius } from './sharedStyles'
-
+import { gradients } from './components/gradients'
 
 export const fonts = {
-  body: 'LeagueSpartanVariable, sans-serif',
-  heading: 'AppleTea, sans-serif',
-}
+         body: 'LeagueSpartanVariable, sans-serif',
+         heading: 'Oswald, sans-serif',
+       }
 const transition = {
   transition: 'all .4s ease-in-out',
 }
@@ -69,8 +69,23 @@ export const p = {
 
 export const h1 = {
   ...heading,
+  ...transition,
   fontSize: [5, 6],
   mt: 2,
+  variant: `gradients.headings`,
+  color: t => `${t.colors.primaryInBetween}`,
+  '&:hover': {
+    ...transition,
+    color: t => `${t.colors.primaryInBetween}`,
+    background: `transparent`,
+    WebkitBackgroundClip: `unset`,
+    backgroundClip: `unset`,
+    WebkitTextFillColor: `unset`,
+    borderImageSlice: `1`,
+  },
+  a: {
+    color: t => `${t.colors.primaryInBetween}`,
+  },
 }
 export const h2 = {
   ...heading,
@@ -129,7 +144,7 @@ export const blockquote = {
 }
 
 export const code = {
-  fontSize: [`1.3rem`, `1.5rem`],
+  fontSize: [`1rem`],
   background: tailwind.colors.gray[3],
   fontFamily: 'Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace',
 }

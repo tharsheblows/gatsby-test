@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 const SiteBranding = ({ title }) => {
   return (
-    <Styled.h1 sx={{ m: 0, textTransform: 'uppercase', fontSize: [3, 5] }}>
+    <Styled.h1 sx={{ m: 0, textTransform: 'uppercase', fontSize: [3, 5], variant: `gradients.headings` }}>
       <Styled.a as={Link} to="/" rel="home">
         {title}
       </Styled.a>

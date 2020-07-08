@@ -17,15 +17,9 @@ function SEO({ description, lang, meta, keywords, title }) {
           <Helmet
             htmlAttributes={{
               lang,
-            }}
+			}}
             title={titleText}
             titleTemplate={`%s`}
-            style={[
-              {
-                href: 'https://vjs.zencdn.net/7.6.5/video-js.css',
-                rel: 'stylesheet',
-              },
-            ]}
             meta={[
               {
                 name: `description`,

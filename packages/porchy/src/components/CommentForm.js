@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import { React, useState } from 'react'
+import { useState } from 'react'
 import { Mutation } from 'react-apollo'
 import CREATE_COMMENT from '../utils/createComment'
 
@@ -21,7 +21,7 @@ const CommentForm = ( props ) => {
 
 
   // Renders the comment form elements.
- let renderCommentForm =
+ const renderCommentForm =
       // Wrap it in our mutation.
       // This needs to be cleaned up but for now it's easier to see if it's all in one place.
       // Except for the mutation I guess. It's in utils, maybe it should be somewhere else?

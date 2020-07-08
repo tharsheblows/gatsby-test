@@ -8,7 +8,7 @@ const Author = ({ post }) => {
     <Styled.a
       as={Link}
       sx={{
-        variant: `links.decorated`,
+        variant: `links.decoratedSpaced`,
       }}
       aria-label={`visit ${name} page`}
       to={`/author/${slug}`}

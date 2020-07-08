@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 import ContactForm from './ContactForm'
+import SubscriptionForm from './SubscriptionForm'
 import { replace, regexp } from '@wordpress/shortcode'
 
 import sanitizeHtml from 'sanitize-html'
@@ -22,7 +23,7 @@ const PageEntry = ({ content, title, wordPressUrl }) => {
 
   let parsedFinalContent = parseContent(finalContent, wordPressUrl, 'posts')
   // and maybe add the contact form underneath the content.
-  const maybeContactForm = hasContactForm ? <ContactForm /> : ''
+  const contactOrSubscriptionForm = hasContactForm ? <ContactForm /> : <SubscriptionForm />
 
   return (
     <div sx={{ variant: `cards.muted` }}>
@@ -30,14 +31,14 @@ const PageEntry = ({ content, title, wordPressUrl }) => {
         <Styled.h1
           sx={{
             textAlign: 'center',
-            textTransform: 'uppercase',
+			textTransform: 'uppercase',
           }}
           className="page-title"
           dangerouslySetInnerHTML={{ __html: title }}
         />
         <Styled.root dangerouslySetInnerHTML={{ __html: parsedFinalContent }} />
       </div>
-      {maybeContactForm}
+      {contactOrSubscriptionForm}
     </div>
   )
 }

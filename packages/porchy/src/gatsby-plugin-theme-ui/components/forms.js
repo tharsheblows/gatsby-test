@@ -33,6 +33,14 @@ export const forms = {
     textarea: {
       ...sharedInputStyles,
     },
+    button: {
+      width: `80%`,
+      variant: `buttons.primary`,
+      color: `black`,
+      ':hover': {
+        variant: `buttons.secondary`,
+      },
+    },
     ul: {
       marginLeft: `5em`,
       listStyleType: `none`,
@@ -53,4 +61,35 @@ export const forms = {
       },
     },
   },
+  subscription: {
+    color: `text`,
+    fontSize: [1, 2],
+    fontFamily: `body`,
+	margin: `1em auto`,
+	textAlign: `left`,
+    label: {
+      width: `100%`,
+      display: `block`,
+      color: t => `${t.colors.primaryLight}`,
+      verticalAlign: `top`,
+    },
+    input: {
+	  ...sharedInputStyles,
+	  width: `100%`,
+	  padding: `0.5em`
+    },
+    textarea: {
+      ...sharedInputStyles,
+    },
+    button: {
+	  margin: `0 auto 1em auto`,
+	  variant: `buttons.primary`,
+	  display: `inline-block`,
+      color: `black`,
+      ':hover': {
+        variant: `buttons.secondary`,
+      },
+	},
+	borderBottom: t => `1px solid ${t.colors.light}`
+  }
 }

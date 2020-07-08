@@ -2,9 +2,9 @@ const sharedButtonStyles = {
   border: `none`,
   color: `white`,
   cursor: `pointer`,
-  fontFamily: `body`,
-  fontWeight: `bold`,
+  fontFamily: `heading`,
   transition: `all 0.4s ease-in-out`,
+  textTransform: `uppercase`,
   letterSpacing: 1,
   boxShadow: `md`,
   '&:hover': {

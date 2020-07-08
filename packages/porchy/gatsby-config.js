@@ -37,7 +37,14 @@ module.exports = options => {
             Authorization: `Bearer ${process.env.WP_GRAPHQL_TOKEN}`,
           },
         },
-	  },
+      },
+      {
+        resolve: `gatsby-plugin-google-fonts`,
+        options: {
+          fonts: [`Inconsolata\:400, 700`, `Oswald\:200,300,400,500,600,700`],
+          display: 'swap',
+        },
+      },
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,
