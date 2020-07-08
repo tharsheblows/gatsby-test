@@ -27,7 +27,7 @@ const Header = () => {
     <Headroom sx={{ zIndex: '100' }}>
       <StyledHeader
         sx={{
-          bg: `background`,
+          bg: `white`,
           // boxShadow: t => `0 0 5px 1px ${t.colors.shadeBlue}`,
           '.bm-burger-button': {
             position: 'relative',

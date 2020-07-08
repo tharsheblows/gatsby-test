@@ -3,9 +3,9 @@ import { borderRadius } from './sharedStyles'
 import { gradients } from './components/gradients'
 
 export const fonts = {
-         body: 'LeagueSpartanVariable, sans-serif',
-         heading: 'Oswald, sans-serif',
-       }
+  body: 'LeagueSpartanVariable, sans-serif',
+  heading: 'Oswald, sans-serif',
+}
 const transition = {
   transition: 'all .4s ease-in-out',
 }
@@ -70,7 +70,7 @@ export const p = {
 export const h1 = {
   ...heading,
   ...transition,
-  fontSize: [5, 6],
+  fontSize: [6],
   mt: 2,
   variant: `gradients.headings`,
   color: t => `${t.colors.primaryInBetween}`,
@@ -89,23 +89,23 @@ export const h1 = {
 }
 export const h2 = {
   ...heading,
-  fontSize: [4, 5],
+  fontSize: [5],
   mt: 2,
 }
 
 export const h3 = {
   ...heading,
-  fontSize: [3, 4],
+  fontSize: [4],
   mt: 3,
 }
 export const h4 = {
   ...heading,
-  fontSize: [2, 3],
+  fontSize: [3],
 }
 
 export const h5 = {
   ...heading,
-  fontSize: [1, 2],
+  fontSize: [2],
 }
 export const h6 = {
   ...heading,

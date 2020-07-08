@@ -10,7 +10,7 @@ const PostEntryTitle = ({ post, location, postsPrefix }) => {
     <>
       {location === 'single' ? (
         <Styled.h1
-          sx={{ textTransform: `uppercase`, fontSize: [3, 4, 5] }}
+          sx={{ textTransform: `uppercase` }}
           className="entry-title"
           dangerouslySetInnerHTML={{ __html: title }}
         />
