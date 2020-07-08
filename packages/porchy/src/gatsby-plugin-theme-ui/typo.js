@@ -151,7 +151,7 @@ export const code = {
 
 export const base = {
   ...tailwind.styles.root,
-  fontSize: [1, 2],
+  fontSize: [1,2],
   color: `text`,
   a,
   p,

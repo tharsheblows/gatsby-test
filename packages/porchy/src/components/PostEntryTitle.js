@@ -18,7 +18,7 @@ const PostEntryTitle = ({ post, location, postsPrefix }) => {
         <Styled.h1
           as="h2"
           className="entry-title"
-          sx={{ textTransform: `uppercase`, fontSize: [3, 4, 5] }}
+          sx={{ textTransform: `uppercase` }}
         >
           <Styled.a
             as={Link}
