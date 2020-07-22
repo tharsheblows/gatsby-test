@@ -16,6 +16,8 @@ const isAuthenticated = () => {
   }
 }
 
+const logoutUri = ( isBrowser() ) ? window.location.origin : '/'
+
 const Account = props => {
   const [user, setUser] = useState(null)
   useEffect(() => {
@@ -38,7 +40,7 @@ const Account = props => {
       .then(() => {
         localStorage.setItem('isAuthenticated', 'false')
         setUser(false)
-        navigate('/')
+        navigate(logoutUri)
       })
       .catch(error => {
         console.error('Sign out error: ' + error)

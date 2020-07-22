@@ -5,7 +5,6 @@ import React, { useState, useEffect } from 'react'
 export const isBrowser = () => typeof window !== 'undefined'
 
 const redirectUri = ( isBrowser() ) ? window.location.origin + '/account' : ''
-console.log( redirectUri )
 
 const config = {
   baseUrl: 'https://dev-704702.okta.com',
