@@ -2,12 +2,16 @@ import OktaSignIn from '@okta/okta-signin-widget'
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
 import React, { useState, useEffect } from 'react'
 
+export const isBrowser = () => typeof window !== 'undefined'
+
+const redirectUri = ( isBrowser() ) ? window.location.origin + '/account' : ''
+console.log( redirectUri )
+
 const config = {
   baseUrl: 'https://dev-704702.okta.com',
   clientId: '0oal2p7kq5jKvy70i4x6',
   logo: '//logo.clearbit.com/gatsbyjs.org',
-  redirectUri:
-    typeof window !== 'undefined' && window.location.origin + '/account',
+  redirectUri: redirectUri,
   el: '#signIn',
   authParams: {
     pkce: true,
@@ -17,7 +21,6 @@ const config = {
   },
 }
 
-export const isBrowser = () => typeof window !== 'undefined'
 export const signIn = isBrowser() && new OktaSignIn(config)
 
 const Login = props => {
