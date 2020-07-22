@@ -5,5 +5,8 @@
 	"workspaces": [
 		"site",
 		"packages/*"
-	]
+	],
+	"dependencies": {
+		"@okta/jwt-verifier": "^1.0.0"
+	}
 }

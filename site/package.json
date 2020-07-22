@@ -11,6 +11,7 @@
 		"serve": "gatsby serve"
 	},
 	"dependencies": {
+		"@okta/jwt-verifier": "^1.0.0",
 		"@okta/okta-signin-widget": "^4.2.2",
 		"@tharsheblows/porchy-ltd-theme": "^0.1.0",
 		"@wordpress/block-library": "^2.9.0",

@@ -4,6 +4,7 @@
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
     "@mdx-js/react": "^1.0.21",
+    "@okta/jwt-verifier": "^1.0.0",
     "@theme-ui/presets": "^0.2.25",
     "@wordpress/shortcode": "^2.4.0",
     "emotion": "^10.0.14",

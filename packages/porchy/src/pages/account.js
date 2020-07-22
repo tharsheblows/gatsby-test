@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { navigate, Router } from '@reach/router'
 import { Link } from 'gatsby'
-import Login, { signIn } from '../components/Login'
+import Login, { signIn, isBrowser } from '../components/Login'
 
 const Home = () => <p>Account Information</p>
 const Settings = () => <p>Settings</p>
 
+
+
 const isAuthenticated = () => {
-  if (typeof window !== 'undefined') {
+  if ( isBrowser() ) {
     return localStorage.getItem('isAuthenticated') === 'true'
   } else {
     return false
@@ -18,23 +20,20 @@ const Account = props => {
   const [user, setUser] = useState(null)
   useEffect(() => {
     async function getToken() {
-	  const token = await signIn.authClient.tokenManager.get('idToken')
-	  console.log( 'token' )
-	  console.log( token )
+      const token = await signIn.authClient.tokenManager.get('idToken')
       if (token) {
-        console.log(token)
         setUser(token.claims.name)
       } else {
         // Token has expired
         setUser(false)
         localStorage.setItem('isAuthenticated', 'false')
       }
-	}
-	getToken()
+    }
+    getToken()
   }, [user])
 
   const logout = () => {
-  	signIn.authClient
+    signIn.authClient
       .signOut()
       .then(() => {
         localStorage.setItem('isAuthenticated', 'false')
@@ -46,7 +45,8 @@ const Account = props => {
       })
   }
 
-  if (!isAuthenticated()) {
+  // I did something here at one point that caused infinite rerenders so keep an eye on that.
+  if (!isAuthenticated() || user === false ) {
     return <Login />
   }
 

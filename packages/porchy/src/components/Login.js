@@ -17,7 +17,8 @@ const config = {
   },
 }
 
-export const signIn = typeof window !== 'undefined' && new OktaSignIn(config)
+export const isBrowser = () => typeof window !== 'undefined'
+export const signIn = isBrowser() && new OktaSignIn(config)
 
 const Login = props => {
   const [user, setUser] = useState(null)
@@ -27,8 +28,6 @@ const Login = props => {
 
     async function getSession() {
       const session = await authClient.session.get()
-	  console.log('session.status', session.status)
-	  console.log(session)
 
       // Session exists, show logged in state.
       if (session.status === 'ACTIVE') {
@@ -45,21 +44,20 @@ const Login = props => {
             scopes: ['openid', 'email', 'profile'],
           })
           .then(tokenObject => {
-
             const tokens = tokenObject.tokens
-
             if (tokens.idToken) {
               authClient.tokenManager.add('idToken', tokens.idToken)
             }
             if (tokens.accessToken) {
-              authClient.tokenManager.add('accessToken', tokens.idToken)
+              console.log(tokens.accessToken)
+              authClient.tokenManager.add('accessToken', tokens.accessToken)
             }
 
             // Say hello to the person who just signed in
             authClient.tokenManager.get('idToken').then(idToken => {
               console.log(
                 `Hello, ${idToken.claims.name} (${idToken.claims.email})`
-			  )
+              )
               window.location.reload()
             })
           })
