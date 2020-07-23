@@ -7,14 +7,14 @@ export const isBrowser = () => typeof window !== 'undefined'
 const redirectUri = ( isBrowser() ) ? window.location.origin + '/account' : ''
 
 const config = {
-  baseUrl: 'https://dev-704702.okta.com',
+  baseUrl: 'https://id.porchy.co.uk/oauth2/ausmjwveopIZ1QT4M4x6',
   clientId: '0oal2p7kq5jKvy70i4x6',
   logo: '//logo.clearbit.com/gatsbyjs.org',
   redirectUri: redirectUri,
   el: '#signIn',
   authParams: {
     pkce: true,
-    issuer: 'https://dev-704702.okta.com/oauth2/ausl2vjw55vgBn2Wt4x6',
+    issuer: 'https://id.porchy.co.uk/oauth2/ausmjwveopIZ1QT4M4x6',
     responseType: ['token', 'id_token'],
     responseMode: 'query',
   },
