@@ -18,16 +18,12 @@
 		"@wordpress/block-serialization-default-parser": "^3.4.0",
 		"@wordpress/blocks": "^6.7.0",
 		"@wordpress/rich-text": "^3.7.0",
-		"apollo-boost": "^0.4.4",
 		"gatsby": "^2.1.27",
+		"gatsby-plugin-netlify": "^2.3.11",
 		"graphql-tag": "^2.10.1",
 		"prismjs": "^1.17.1",
 		"react": "^16.8.4",
-		"react-apollo": "^3.1.1",
-		"react-dom": "^16.8.4",
-		"video.js": "^7.6.5"
+		"react-dom": "^16.8.4"
 	},
-	"devDependencies": {
-		"gatsby-plugin-goatcounter": "^0.3.1"
-	}
+	"devDependencies": {}
 }
