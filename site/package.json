@@ -26,5 +26,8 @@
 		"react-apollo": "^3.1.1",
 		"react-dom": "^16.8.4",
 		"video.js": "^7.6.5"
+	},
+	"devDependencies": {
+		"gatsby-plugin-goatcounter": "^0.3.1"
 	}
 }
