@@ -24,7 +24,7 @@ export const pageQuery = graphql`
     wpgraphql {
       page(id: $id) {
         title
-        content(format: RAW)
+        content
         excerpt
         uri
       }

@@ -32,10 +32,10 @@ module.exports = options => {
           fieldName: `wpgraphql`,
           // Url to query from
           url: `${wordPressUrl}/graphql`,
-          headers: {
-            // Learn about environment variables: https://gatsby.dev/env-vars
-            Authorization: `Bearer ${process.env.WP_GRAPHQL_TOKEN}`,
-          },
+        //   headers: {
+        //     // Learn about environment variables: https://gatsby.dev/env-vars
+        //     Authorization: `Bearer ${process.env.WP_GRAPHQL_TOKEN}`,
+        //   },
         },
       },
       {

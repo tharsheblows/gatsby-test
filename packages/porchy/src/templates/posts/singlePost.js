@@ -26,7 +26,7 @@ export const pageQuery = graphql`
   query GET_POST($id: ID!) {
     wpgraphql {
       post(id: $id) {
-        content(format: RAW)
+        content
         comments {
           nodes {
             commentId

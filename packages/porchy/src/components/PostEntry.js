@@ -8,6 +8,7 @@ import PostEntryInfo from './PostEntryInfo'
 import SubscriptionForm from './SubscriptionForm'
 
 const PostEntry = ({ post, location, options }) => {
+
   const { postsPrefix, wordPressUrl } = options
   const includeSubscription = ( location === 'single' ) ? <SubscriptionForm /> : ''
   return (

@@ -3,6 +3,7 @@ import { jsx, Styled } from 'theme-ui'
 import { parseContent } from '../utils'
 
 const PostEntryContent = ({ post, location, wordPressUrl }) => {
+
   const content = location === 'single' ? post.content : post.excerpt
   const localLinkContent = parseContent(content, wordPressUrl, `posts`)
 

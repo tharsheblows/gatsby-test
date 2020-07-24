@@ -25,13 +25,13 @@ const GET_POSTS = `
               endCursor
           }
           nodes {
-            id
-            uri
-            postId
-			title
-			content(format:RAW)
-			excerpt
-			guid
+              id
+              uri
+              postId
+              title
+              excerpt
+              guid
+              content
           }
       }
   }
@@ -145,7 +145,6 @@ module.exports = async ({ actions, graphql }, options) => {
         console.log(`fetch page ${pageNumber} of posts...`)
         return fetchPosts({ first: postsPerPage, after: endCursor })
       }
-
       /**
        * Once we're done, return all the posts
        * so we can create the necessary pages with
@@ -167,7 +166,7 @@ module.exports = async ({ actions, graphql }, options) => {
      */
     allPosts &&
       allPosts.map((post, index) => {
-        console.log(`create post: ${post.uri}`)
+		console.log(`create post: ${post.uri}`)
         createPage({
           path: `/${postsPrefix}/${post.uri}/`,
           component: postTemplate,

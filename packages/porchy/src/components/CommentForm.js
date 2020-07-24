@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 import { useState } from 'react'
-import { Mutation } from 'react-apollo'
-import CREATE_COMMENT from '../utils/createComment'
+// import { Mutation } from 'react-apollo'
+// import CREATE_COMMENT from '../utils/createComment'
 
 // use this https://northstack.com/dynamic-comments-gatsby-wordpress/
 // interesting convo: https://github.com/wp-graphql/wp-graphql/issues/827 .
@@ -18,38 +18,15 @@ const CommentForm = ( props ) => {
   const [commentStatus, setCommentStatus] = useState(false);
   const [error, setError] = useState('');
 
-
+  const createComment = () => {
+	  alert( 'hey there' )
+  }
 
   // Renders the comment form elements.
- const renderCommentForm =
+ const renderCommentForm = (
       // Wrap it in our mutation.
       // This needs to be cleaned up but for now it's easier to see if it's all in one place.
       // Except for the mutation I guess. It's in utils, maybe it should be somewhere else?
-      <Mutation
-        mutation={CREATE_COMMENT}
-        // Set completion state.
-        variables={{
-          input: {
-            author: userName,
-            commentOn: props.post.postId, // see above, this might change to id at some point.
-            content: message,
-            authorEmail: email,
-            clientMutationId: 'TSTCreateComment',
-          },
-        }}
-        onCompleted={() => {
-          setCommentStatus('success')
-        }}
-        // Set error state.
-        onError={() => {
-          setCommentStatus('error')
-        }}
-        onSubmit={e => {
-          e.preventDefault()
-          this.handleClear()
-        }}
-      >
-        {createComment => (
           <div>
             <Styled.h3>Leave a comment</Styled.h3>
             <Styled.p sx={{ a: { variant: `links.decorated` }, color: `text` }}>
@@ -127,8 +104,7 @@ const CommentForm = ( props ) => {
               </ul>
             </form>
           </div>
-        )}
-      </Mutation>
+ )
 
   switch (commentStatus) {
       case 'success':
