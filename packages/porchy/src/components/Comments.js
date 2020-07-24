@@ -14,13 +14,16 @@ const Comments = ({ post, location, wordPressUrl }) => {
     async function getPostComments() {
       const getComments = await fetch(postCommentsEndpoint)
       return getComments.json()
-    }
-    let isSubscribed = true
-    getPostComments().then(postComments => {
-      if (isSubscribed) {
-        setComments(postComments)
-      }
-    })
+	}
+	let isSubscribed = true
+	// only run this on single post pages.
+	if( location === 'single' ) {
+    	getPostComments().then(postComments => {
+    	  if (isSubscribed) {
+    	    setComments(postComments)
+    	  }
+		})
+	}
     // See https://juliangaramendy.dev/use-promise-subscription/. This fixes the "To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function" error.
     return () => (isSubscribed = false)
   }, [])
