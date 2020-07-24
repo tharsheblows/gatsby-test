@@ -36,9 +36,9 @@ const Pagination = ({
         <nav role="navigation" aria-label="Pagination Navigation">
           <ul>
             {Array.from({ length: allPosts.length / itemsPerPage }, (_, i) => (
-              <li>
+              <li key={`li${i}`}>
                 <Link
-                  key={`pagination-number${i + 1}`}
+                  key={i}
                   to={
                     i === 0
                       ? `${postsPath}/`

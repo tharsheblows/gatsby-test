@@ -10,9 +10,9 @@ const Comment = ({ comment }) => {
   const {
     date,
     content,
-    author: { name },
+    author_name,
   } = comment
-  const commentContent = sanitizeHtml(content, { allowedTags: ['p', 'br'] })
+  const commentContent = sanitizeHtml(content.rendered, { allowedTags: ['p', 'br'] })
   return (
     <>
       <div
@@ -25,7 +25,7 @@ const Comment = ({ comment }) => {
           color: `text`,
         }}
       >
-        From {name} on <Date date={date} />
+        From {author_name} on <Date date={date} />
         <div dangerouslySetInnerHTML={{ __html: commentContent }} />
       </div>
     </>

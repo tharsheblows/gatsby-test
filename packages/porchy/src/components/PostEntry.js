@@ -32,7 +32,7 @@ const PostEntry = ({ post, location, options }) => {
 		{includeSubscription}
         <div className="entry-footer">
           <PostEntryInfo className="entry-info" post={post} />
-          <PostEntryMeta post={post} location={location} />
+          <PostEntryMeta post={post} location={location} wordPressUrl={wordPressUrl} />
         </div>
       </div>
     </article>

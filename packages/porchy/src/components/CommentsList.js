@@ -4,24 +4,29 @@ import React from 'react'
 
 import Comment from './Comment'
 
-const CommentsList = ({ post }) => {
-  const commentCount = post.commentCount
+const CommentsList = ({ comments }) => {
+  const commentCount = ( comments ) ? `${comments.length} ` : ''
   const commentHeading =
     commentCount > 1 ? 'Comments' : commentCount < 1 ? 'No comments' : 'Comment'
-  const comments = post.comments.nodes
+  const commentsList = comments ? (
+    <>
+      <div sx={{ mb: 2 }}>
+        {comments.map(comment => (
+          <Comment comment={comment} key={comment.id} />
+        ))}
+      </div>
+    </>
+  ) : null
+
   return (
     <>
       <Styled.h2
         sx={{ textTransform: `uppercase`, fontSize: [3, 4, 5], mt: 4 }}
         className="comments-title"
       >
-        {commentCount} {commentHeading}
+        {commentCount}{commentHeading}
       </Styled.h2>
-      <div sx={{ mb: 2 }}>
-        {comments.map(comment => (
-          <Comment comment={comment} />
-        ))}
-      </div>
+      {commentsList}
     </>
   )
 }

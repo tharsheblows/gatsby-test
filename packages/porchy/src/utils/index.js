@@ -7,8 +7,6 @@ export const parseContent = (html, wordPressUrl, prefix = '') => {
 
   let finalHtml = ''
   const blocks = html ? parse(html) : {}
-  console.log(html)
-  console.log(blocks)
   for (const block in blocks) {
     if (blocks.hasOwnProperty(block)) {
       // This probably doesn't handle inner blocks.
