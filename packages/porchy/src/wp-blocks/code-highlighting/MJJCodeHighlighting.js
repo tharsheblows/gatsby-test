@@ -52,7 +52,6 @@ const MJJCodeHighlighting = props => {
 
   useEffect(() => {
     const toggleShow = () => {
-      console.log('toggling')
       setShow(!show)
     }
     const toggleButton = document.getElementById(buttonId)

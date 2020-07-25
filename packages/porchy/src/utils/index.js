@@ -12,8 +12,6 @@ export const getComponents = html => {
   const blocks = html ? parse(html) : {}
   let notBlocksContent = ''
   let components = []
-  let component = ''
-  let attributes = {}
   for (const block in blocks) {
     if (blocks.hasOwnProperty(block)) {
       // This probably doesn't handle inner blocks.
@@ -26,8 +24,8 @@ export const getComponents = html => {
         if (notBlocksContent !== '') {
           components.push({
             component: 'MJJContentHolder',
-			attributes: { html: notBlocksContent },
-			key: uuidv4()
+            attributes: { html: notBlocksContent },
+            key: uuidv4(),
           })
           notBlocksContent = '' // Start over
         }
@@ -37,6 +35,14 @@ export const getComponents = html => {
         notBlocksContent += createLocalLinks(innerHTML)
       }
     }
+  }
+  // Get any leftover plain content.
+  if (notBlocksContent !== '') {
+    components.push({
+      component: 'MJJContentHolder',
+      attributes: { html: notBlocksContent },
+      key: uuidv4(),
+    })
   }
   return components
 }

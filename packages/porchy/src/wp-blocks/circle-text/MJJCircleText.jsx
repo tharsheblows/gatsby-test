@@ -11,7 +11,7 @@ class MJJCircleText extends Component {
   }
 
   render() {
-    let attributes = this.props.attributes
+    let attributes = this.props.block.attributes
     return (
       // templatestart
       <div>
