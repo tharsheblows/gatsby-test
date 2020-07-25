@@ -3,8 +3,8 @@
  *
  * The render bit is taken from https://github.com/pantheon-systems/code-highlighting-gutenberg-block by Daniel Bachhuber
  */
-import { Component } from '@wordpress/element'
-import React from 'react'
+
+import React, { useState, useEffect } from 'react'
 // importing copied style so I can edit it
 import './styles.css'
 //import 'prismjs/themes/prism.css'
@@ -37,37 +37,56 @@ import 'prismjs/components/prism-markup-templating'
 // prism-coy.css
 
 // this approach is from https://www.ibenic.com/create-gutenberg-block-displaying-post/
-export class MJJCodeHighlighting extends Component {
-  constructor(props) {
-    super(props)
+const MJJCodeHighlighting = attributes => {
+  const { language, code } = attributes
+  const languageType = language || 'css'
 
-    this.createHighlighting = this.createHighlighting.bind(this)
-  }
+  const [show, setShow] = useState(false)
 
-  createHighlighting() {
-    const { code, language } = this.props.attributes
-    let html = Prism.highlight(code, Prism.languages[language], language)
+  const createHighlighting = () => {
+    let html = Prism.highlight(
+      code,
+      Prism.languages[languageType],
+      languageType
+    )
     return { __html: html }
   }
+  console.log(show)
+  useEffect(() => {
+    console.log('in use effect')
+    const toggleShow = () => {
+      console.log('toggling')
+      setShow(!show)
+    }
+    const toggleButton = document.getElementById('mjj-code-toggle')
+    toggleButton.addEventListener('click', toggleShow)
 
-  render() {
-    let language = this.props.attributes.language || 'css'
-    let languageClassName = 'language-' + language
-    let headerClassName = 'language-header ' + language
-    let languageHeading = language.toUpperCase()
-    return (
-      <div className="mjj-code-highlighting">
-        <div className={headerClassName}>{languageHeading}</div>
-        <pre className={languageClassName}>
-          <code
-            //id={this.id}
-            className={languageClassName}
-            dangerouslySetInnerHTML={this.createHighlighting()}
-          ></code>
-        </pre>
-      </div>
-    )
-  }
+    return () => {
+      // clean up the event handler when the component unmounts
+      toggleButton.removeEventListener('click', toggleShow)
+    }
+  }, [show])
+
+  const languageClassName = 'language-' + languageType
+  const headerClassName = 'language-header ' + languageType
+  const languageHeading = languageType.toUpperCase()
+
+  const codeDiv = show ? (
+    <div>
+      <button id="mjj-code-toggle">hide code</button>
+      <div className={headerClassName}>{languageHeading}</div>
+      <pre className={languageClassName}>
+        <code
+          //id={this.id}
+          className={languageClassName}
+          dangerouslySetInnerHTML={createHighlighting()}
+        ></code>
+      </pre>
+    </div>
+  ) : (
+    <button id="mjj-code-toggle">show code</button>
+  )
+  return <div className="mjj-code-highlighting">{codeDiv}</div>
 }
 
 export default MJJCodeHighlighting
