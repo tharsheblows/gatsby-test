@@ -1,24 +1,17 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import { parseContent } from '../utils'
+import { parseContent, getComponents } from '../utils'
 
 const PostEntryContent = ({ post, location, wordPressUrl }) => {
-
   const content = location === 'single' ? post.content : post.excerpt
   const localLinkContent = parseContent(content, wordPressUrl, `posts`)
 
-  return (
-    <Styled.root
-      sx={{
-        a: {
-          variant: 'links.decorated',
-          color: `primary`,
-        },
-      }}
-      className="entry-content"
-      dangerouslySetInnerHTML={{ __html: localLinkContent }}
-    />
-  )
+  const blockComponents = getComponents(content)
+
+  // OK trying this: https://www.storyblok.com/tp/react-dynamic-component-from-json
+  console.log(blockComponents)
+
+  return <div>'hey there'</div>
 }
 
 export default PostEntryContent

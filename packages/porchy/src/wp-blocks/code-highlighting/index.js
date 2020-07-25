@@ -3,7 +3,8 @@ import ReactDOMServer from 'react-dom/server'
 import MJJCodeHighlighting from './MJJCodeHighlighting'
 
 export const codeHighlighting = attributes => {
-  return ReactDOMServer.renderToStaticMarkup(
+  const html = ReactDOMServer.renderToString(
     <MJJCodeHighlighting attributes={attributes} />
   )
+  return html
 }

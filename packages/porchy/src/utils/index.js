@@ -1,5 +1,39 @@
 import { parse } from '@wordpress/block-serialization-default-parser'
-import { getLocalBlock } from '../wp-blocks'
+import { getLocalBlock, getLocalBlockComponent } from '../wp-blocks'
+import React from 'react'
+import MJJContentHolder from '../wp-blocks/content-holder'
+
+export const getComponents = html => {
+  const blocks = html ? parse(html) : {}
+  let notBlocksContent = ''
+  let components = []
+  let component = ''
+  let attributes = {}
+  for (const block in blocks) {
+    if (blocks.hasOwnProperty(block)) {
+      // This probably doesn't handle inner blocks.
+      const indivBlock = blocks[block]
+      const { blockName, innerHTML, innerBlocks } = indivBlock
+      // Currently the only blocks which get sent over are ours but this check needs to be more robust.
+      // It also can't handle innerBlocks yet.
+      if (blockName) {
+        // Dump all the html in our block holder
+        if (notBlocksContent !== '') {
+          components.push({
+            component: 'MJJContentHolder',
+            attributes: { html: notBlocksContent },
+          })
+          notBlocksContent = '' // Start over
+        }
+        // If there's a blockname, then it's ours
+        components.push(getLocalBlockComponent(blocks[block]))
+      } else if (!blockName && innerHTML) {
+        notBlocksContent += innerHTML
+      }
+    }
+  }
+  return components
+}
 
 export const parseContent = (html, wordPressUrl, prefix = '') => {
   //Is there a better way to do this? Rather than sequentially?
