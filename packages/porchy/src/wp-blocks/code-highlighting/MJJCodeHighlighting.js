@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import React, { useState, useEffect } from 'react'
+import md5 from 'md5'
+
 // importing copied style so I can edit it
 import './styles.css'
 //import 'prismjs/themes/prism.css'
@@ -40,6 +42,7 @@ const MJJCodeHighlighting = props => {
 
   const [show, setShow] = useState(false)
 
+
   const createHighlighting = () => {
     let html = ''
     if (code && languageType) {
@@ -48,23 +51,20 @@ const MJJCodeHighlighting = props => {
     return { __html: html }
   }
 
-  const buttonId = `mjj-code-toggle-${key}`
+  const buttonId = md5(code)
 
   useEffect(() => {
     const toggleShow = () => {
       setShow(!show)
     }
-	const toggleButton = document.getElementById(buttonId)
-	if( toggleButton ){
-		toggleButton.addEventListener('click', toggleShow)
-	}
-
-    return () => {
-		if( toggleButton ){
-      		// clean up the event handler when the component unmounts
-			 toggleButton.removeEventListener('click', toggleShow)
-		}
+    const buttonClicked = e => {
+      if (e.target && e.target.id === buttonId) {
+        toggleShow()
+        document.removeEventListener('click', buttonClicked)
+      }
     }
+
+    document.addEventListener('click', buttonClicked)
   }, [show])
 
   const languageClassName = 'language-' + languageType
@@ -73,7 +73,10 @@ const MJJCodeHighlighting = props => {
 
   const codeDiv = show ? (
     <React.Fragment>
-      <button sx={{ variant: `buttons.primary`, mb: 2 }} id={buttonId}>
+      <button
+        sx={{ variant: `buttons.primary`, mb: 2 }}
+        id={buttonId}
+      >
         hide code
       </button>
       <div className="mjj-code-highlighting">
@@ -89,7 +92,10 @@ const MJJCodeHighlighting = props => {
     </React.Fragment>
   ) : (
     <React.Fragment>
-      <button sx={{ variant: `buttons.primary`, mb: 2 }} id={buttonId}>
+      <button
+        sx={{ variant: `buttons.primary`, mb: 2 }}
+        id={buttonId}
+      >
         show code
       </button>
     </React.Fragment>
