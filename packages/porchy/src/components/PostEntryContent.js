@@ -8,7 +8,7 @@ const PostEntryContent = ({ post, location, wordPressUrl }) => {
 
   const content = location === 'single' ? post.content : post.excerpt
 
-  const blockComponents = getComponents(content)
+  const blockComponents = getComponents(content, wordPressUrl)
 
   // OK trying this: https://www.storyblok.com/tp/react-dynamic-component-from-json
   return <>{blockComponents.map(block => makeElement(block))}</>

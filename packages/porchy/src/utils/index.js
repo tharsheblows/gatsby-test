@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid'
  * This function is delicate and assumes the only blocks I'm getting through are mine.
  * @param {string} html
  */
-export const getComponents = html => {
+export const getComponents = (html, wordPressUrl) => {
   const blocks = html ? parse(html) : {}
   let notBlocksContent = ''
   let components = []
@@ -24,7 +24,9 @@ export const getComponents = html => {
         if (notBlocksContent !== '') {
           components.push({
             component: 'MJJContentHolder',
-            attributes: { html: notBlocksContent },
+            attributes: {
+              html: createLocalLinks(notBlocksContent, wordPressUrl),
+            },
             key: uuidv4(),
           })
           notBlocksContent = '' // Start over
@@ -32,7 +34,7 @@ export const getComponents = html => {
         // If there's a blockname, then it's ours
         components.push(getLocalBlockComponent(blocks[block]))
       } else if (!blockName && innerHTML) {
-        notBlocksContent += createLocalLinks(innerHTML)
+        notBlocksContent += innerHTML
       }
     }
   }
@@ -40,7 +42,7 @@ export const getComponents = html => {
   if (notBlocksContent !== '') {
     components.push({
       component: 'MJJContentHolder',
-      attributes: { html: notBlocksContent },
+      attributes: { html: createLocalLinks(notBlocksContent, wordPressUrl) },
       key: uuidv4(),
     })
   }
@@ -76,12 +78,14 @@ export const parseContent = (html, wordPressUrl, prefix = '') => {
 
 // This switches the install links to the netlify links
 let createLocalLinks = (html, wordPressUrl, prefix = '') => {
+  console.log(html)
+  console.log(wordPressUrl)
   const regex = /href\s*=\s*(['"])(https?:\/\/.+?)(img)?(src=['"]https?:\/\/.+?)?(\/a>)/gi
   const isImgHttps = /src=(['"])(http(s?):)([\/|.|\w|\s|-])*\.(?:jpg|gif|png)/gi
   let link
   while ((link = regex.exec(html)) !== null) {
     if (link[2].includes(wordPressUrl) && link[4] === undefined) {
-      html = html.replace(wordPressUrl, `/${prefix}`)
+      html = html.replace(wordPressUrl, `${prefix}`)
     }
   }
   let src
