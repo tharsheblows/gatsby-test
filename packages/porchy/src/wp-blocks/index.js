@@ -1,8 +1,7 @@
+import React from 'react'
 import { circleText } from './circle-text'
 import { codeHighlighting } from './code-highlighting'
-import React from 'react'
-import MJJCircleText from './circle-text/MJJCircleText'
-import MJJCodeHighlighting from './code-highlighting/MJJCodeHighlighting'
+import { v4 as uuidv4 } from 'uuid'
 
 export function getLocalBlock(block) {
   const { blockName, attrs } = block
@@ -30,10 +29,9 @@ export function getLocalBlockComponent(block) {
 	 component = "MJJCodeHighlighting"
       break
   }
-
-
   return {
-	  component: component,
-	  attributes: attrs
+    component: component,
+    attributes: attrs,
+    key: uuidv4(),
   }
 }

@@ -23,7 +23,8 @@
 		"graphql-tag": "^2.10.1",
 		"prismjs": "^1.17.1",
 		"react": "^16.8.4",
-		"react-dom": "^16.8.4"
+		"react-dom": "^16.8.4",
+		"uuid": "^8.2.0"
 	},
 	"devDependencies": {}
 }

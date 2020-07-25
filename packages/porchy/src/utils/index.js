@@ -1,8 +1,13 @@
 import { parse } from '@wordpress/block-serialization-default-parser'
 import { getLocalBlock, getLocalBlockComponent } from '../wp-blocks'
-import React from 'react'
-import MJJContentHolder from '../wp-blocks/content-holder'
+import { v4 as uuidv4 } from 'uuid'
 
+/**
+ * This makes a JSON array which will be used to create React elements so they stay, y'know, reactive.
+ * The content *not* in blocks will be dumped into the "MJJContentHolder" element.
+ * This function is delicate and assumes the only blocks I'm getting through are mine.
+ * @param {string} html
+ */
 export const getComponents = html => {
   const blocks = html ? parse(html) : {}
   let notBlocksContent = ''
@@ -21,14 +26,15 @@ export const getComponents = html => {
         if (notBlocksContent !== '') {
           components.push({
             component: 'MJJContentHolder',
-            attributes: { html: notBlocksContent },
+			attributes: { html: notBlocksContent },
+			key: uuidv4()
           })
           notBlocksContent = '' // Start over
         }
         // If there's a blockname, then it's ours
         components.push(getLocalBlockComponent(blocks[block]))
       } else if (!blockName && innerHTML) {
-        notBlocksContent += innerHTML
+        notBlocksContent += createLocalLinks(innerHTML)
       }
     }
   }

@@ -1,9 +1,5 @@
-/**
- * BLOCK: mjj-why-code-highlighting
- *
- * The render bit is taken from https://github.com/pantheon-systems/code-highlighting-gutenberg-block by Daniel Bachhuber
- */
-
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React, { useState, useEffect } from 'react'
 // importing copied style so I can edit it
 import './styles.css'
@@ -37,28 +33,29 @@ import 'prismjs/components/prism-markup-templating'
 // prism-coy.css
 
 // this approach is from https://www.ibenic.com/create-gutenberg-block-displaying-post/
-const MJJCodeHighlighting = attributes => {
+const MJJCodeHighlighting = props => {
+  const { attributes, key } = props.block
   const { language, code } = attributes
   const languageType = language || 'css'
 
   const [show, setShow] = useState(false)
 
   const createHighlighting = () => {
-    let html = Prism.highlight(
-      code,
-      Prism.languages[languageType],
-      languageType
-    )
+    let html = ''
+    if (code && languageType) {
+      html = Prism.highlight(code, Prism.languages[languageType], languageType)
+    }
     return { __html: html }
   }
-  console.log(show)
+
+  const buttonId = `mjj-code-toggle-${key}`
+
   useEffect(() => {
-    console.log('in use effect')
     const toggleShow = () => {
       console.log('toggling')
       setShow(!show)
     }
-    const toggleButton = document.getElementById('mjj-code-toggle')
+    const toggleButton = document.getElementById(buttonId)
     toggleButton.addEventListener('click', toggleShow)
 
     return () => {
@@ -72,21 +69,29 @@ const MJJCodeHighlighting = attributes => {
   const languageHeading = languageType.toUpperCase()
 
   const codeDiv = show ? (
-    <div>
-      <button id="mjj-code-toggle">hide code</button>
-      <div className={headerClassName}>{languageHeading}</div>
-      <pre className={languageClassName}>
-        <code
-          //id={this.id}
-          className={languageClassName}
-          dangerouslySetInnerHTML={createHighlighting()}
-        ></code>
-      </pre>
-    </div>
+    <React.Fragment>
+      <button sx={{ variant: `buttons.primary`, mb: 2 }} id={buttonId}>
+        hide code
+      </button>
+      <div className="mjj-code-highlighting">
+        <div className={headerClassName}>{languageHeading}</div>
+        <pre className={languageClassName}>
+          <code
+            //id={this.id}
+            className={languageClassName}
+            dangerouslySetInnerHTML={createHighlighting()}
+          ></code>
+        </pre>
+      </div>
+    </React.Fragment>
   ) : (
-    <button id="mjj-code-toggle">show code</button>
+    <React.Fragment>
+      <button sx={{ variant: `buttons.primary`, mb: 2 }} id={buttonId}>
+        show code
+      </button>
+    </React.Fragment>
   )
-  return <div className="mjj-code-highlighting">{codeDiv}</div>
+  return codeDiv
 }
 
 export default MJJCodeHighlighting

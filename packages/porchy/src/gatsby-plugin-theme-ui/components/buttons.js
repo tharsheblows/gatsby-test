@@ -17,10 +17,15 @@ export const buttons = {
   primary: {
     ...sharedButtonStyles,
     borderRadius: 5,
-    variant: `gradients.secondary`,
+	variant: `gradients.secondary`,
+	color: `black`,
     fontSize: 1,
     px: 2,
-    py: 1,
+	py: 1,
+	':hover': {
+		variant: `gradients.primary`,
+		color: `white`
+	}
   },
   secondary: {
     ...sharedButtonStyles,
