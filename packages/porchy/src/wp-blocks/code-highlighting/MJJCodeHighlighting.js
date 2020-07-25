@@ -54,12 +54,16 @@ const MJJCodeHighlighting = props => {
     const toggleShow = () => {
       setShow(!show)
     }
-    const toggleButton = document.getElementById(buttonId)
-    toggleButton.addEventListener('click', toggleShow)
+	const toggleButton = document.getElementById(buttonId)
+	if( toggleButton ){
+		toggleButton.addEventListener('click', toggleShow)
+	}
 
     return () => {
-      // clean up the event handler when the component unmounts
-      toggleButton.removeEventListener('click', toggleShow)
+		if( toggleButton ){
+      		// clean up the event handler when the component unmounts
+			 toggleButton.removeEventListener('click', toggleShow)
+		}
     }
   }, [show])
 
