@@ -1,28 +1,25 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 import { useState } from 'react'
-// import { Mutation } from 'react-apollo'
-// import CREATE_COMMENT from '../utils/createComment'
-
-// use this https://northstack.com/dynamic-comments-gatsby-wordpress/
-// interesting convo: https://github.com/wp-graphql/wp-graphql/issues/827 .
-// also if this starts failing, watch for change from post id to Relay global ID https://github.com/wp-graphql/wp-graphql/issues/532 .
 
 const CommentForm = ({ post, commentsEndpoint }) => {
   const postId = post.postId
 
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
-  //const [botField, setBotField] = useState('');
   const [message, setMessage] = useState('')
   const [commentStatus, setCommentStatus] = useState(false)
-  const [error, setError] = useState('')
 
-  async function createComment() {
-	if( commentStatus === 'loading' ){
-		return // don't send this twice.
+  // This handles sending the comment to the WordPress install.
+  const createComment = () => {
+    // Trying to avoid double clicks here.
+    if (commentStatus === 'loading') {
+      return // don't send this twice.
 	}
-    const response = await fetch(commentsEndpoint, {
+
+	// This is a POST request to the comments endpoint. The body is sent as a JSON string.
+	// Once the response is received, we set the comment status accordingly.
+    fetch(commentsEndpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,19 +30,22 @@ const CommentForm = ({ post, commentsEndpoint }) => {
         post: postId,
         content: message,
       }),
-	})
-	if( response.status === 201 ){
-		setCommentStatus('success')
-	} else {
-		setCommentStatus('error')
-	}
+    }).then(response => {
+      if (response.status === 201) {
+        setCommentStatus('success')
+      } else {
+        setCommentStatus('error')
+      }
+    })
   }
 
   // Renders the comment form elements.
   const renderCommentForm = (
-    // Wrap it in our mutation.
-    // This needs to be cleaned up but for now it's easier to see if it's all in one place.
-    // Except for the mutation I guess. It's in utils, maybe it should be somewhere else?
+
+	// This is using Styled components. (I keep playing around with the styles, it's not my strong suit.)
+	// When the form is submitted, the comment status is set to "loading", then the submission response will update it.
+	// The form inputs are easy with hooks! I updated this a little while ago and love them. 💖
+	// All the comments on this are up here otherwise they'll mess up the rendering.
     <div>
       <Styled.h3>Leave a comment</Styled.h3>
       <Styled.p sx={{ a: { variant: `links.decorated` }, color: `text` }}>
@@ -121,13 +121,13 @@ const CommentForm = ({ post, commentsEndpoint }) => {
   )
 
   switch (commentStatus) {
-    case 'success':
+    case 'success': // A successful submission.
       return 'Your comment has been successfully submitted.'
-    case 'loading':
+    case 'loading': // Just submitted, no response yet.
       return 'Please wait. Your comment is being submitted.'
-    case 'error':
+    case 'error': // Something went wrong.
       return 'There was an error in your submission. Please try again later.'
-    default:
+    default: // No submission, render the form.
       return renderCommentForm
   }
 }

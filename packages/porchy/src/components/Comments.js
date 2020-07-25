@@ -6,36 +6,53 @@ import CommentsList from './CommentsList'
 import CommentForm from './CommentForm'
 
 const Comments = ({ post, location, wordPressUrl }) => {
-  const commentsEndpoint = `${wordPressUrl}/wp-json/wp/v2/comments` // I'm hardcoding it, leave me alone.
-  const postCommentsEndpoint = `${commentsEndpoint}?post=${post.postId}`
-  const [comments, setComments] = useState(false)
+  // The comments endpoint, hardcoded in, I have no shame.
+  const commentsEndpoint = `${wordPressUrl}/wp-json/wp/v2/comments`
 
+  // Each comments component is attached to a post. This is the endpoint to get all comments for that post.
+  const postCommentsEndpoint = `${commentsEndpoint}?post=${post.postId}`
+
+  // Setting up state to handle the incoming comments.
+  const [comments, setComments] = useState(false)
+  // Do this after the page loads.
   useEffect(() => {
+    // Need to wait for the comments!
     async function getPostComments() {
       const getComments = await fetch(postCommentsEndpoint)
-      return getComments.json()
-	}
-	let isSubscribed = true
-	// only run this on single post pages.
-	if( location === 'single' ) {
-    	getPostComments().then(postComments => {
-    	  if (isSubscribed) {
-    	    setComments(postComments)
-    	  }
-		})
-	}
+        .then(response => {
+		  // Check the response status, if it's not 200 throw an error.
+          if (response.status !== 200) {
+            throw Error(response.message)
+          }
+          return response
+        })
+        .then(response => {
+          return response.json()
+        })
+        .catch(error => {
+		  // Catch the error and fail quietly, no one needs to know.
+          console.log(error)
+          return []
+        })
+      return getComments
+    }
     // See https://juliangaramendy.dev/use-promise-subscription/. This fixes the "To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function" error.
+    let isSubscribed = true
+    // Only get all the comments if this is a single page. Otherwise it runs in archive lists and that's not necessary.
+    // Although! This means that until the site is rebuilt, comment counts on archive post lists will be incorrect after someone successfully
+    // submits a comments. Currently I moderate all comments and really, there are almost none, so I'm ok with this for now.
+    // If you wanted it up to date, you could tweak CommentsCount to use comments.length and take of the "single" check so it does
+    // the request on archive pages too
+    if (location === 'single') {
+      getPostComments().then(postComments => {
+        if (isSubscribed) {
+          setComments(postComments)
+        }
+      })
+    }
     return () => (isSubscribed = false)
   }, [])
 
-  // What if... ok, bear with me here... what if someone posts a comment and it hasn't built yet?
-  // What then? And OK there aren't a lot of comments on this site but there MIGHT BE ONE DAY or, more likely, I will forget about it.
-  // I mean, ok ok ok, I have to approve all comments and so could, theoretically, rebuild after each of them.
-  // BUT I DON'T WANT TO.
-  // so we should check to see how many comments there actually are then add them into the count and the list.
-  // we can do that later but I'm commenting it in here.
-  // otherwise I'll forget.
-  // Maybe a published comment can trigger a build in a couple of hours.
   return (
     <>
       {location === 'single' ? (
