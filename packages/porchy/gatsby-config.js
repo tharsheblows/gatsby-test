@@ -41,7 +41,7 @@ module.exports = options => {
       {
         resolve: `gatsby-plugin-google-fonts`,
         options: {
-          fonts: [`Inconsolata\:400, 700`, `Oswald\:200,300,400,500,600,700`],
+          fonts: [`Oswald\:400,700`],
           display: 'swap',
         },
       },

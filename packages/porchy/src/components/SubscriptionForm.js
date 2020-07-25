@@ -38,7 +38,7 @@ const SubscriptionForm = props => {
       sx={{
         textAlign: `center`,
         fontSize: `1.2rem`,
-        border: t => `2px solid ${t.colors.secondary}`,
+        border: t => `2px solid ${t.colors.shadeBlue}`,
         background: t => `${t.colors.backgroundBlue}`,
         padding: `1rem`,
         margin: `1rem auto`,

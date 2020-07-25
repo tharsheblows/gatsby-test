@@ -3,7 +3,7 @@ import { borderRadius } from './sharedStyles'
 import { gradients } from './components/gradients'
 
 export const fonts = {
-  body: 'Inconsolata, sans-serif',
+  body: 'sans-serif',
   heading: 'Oswald, sans-serif',
 }
 const transition = {
@@ -12,7 +12,7 @@ const transition = {
 
 export const fontWeights = {
   body: 400,
-  heading: 300,
+  heading: 400,
   bold: 700,
 }
 
@@ -71,6 +71,7 @@ export const h1 = {
   ...heading,
   ...transition,
   fontSize: [6],
+  fontWeight: 700,
   mt: 2,
   variant: `gradients.headings`,
   color: t => `${t.colors.primaryInBetween}`,

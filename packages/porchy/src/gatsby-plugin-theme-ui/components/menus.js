@@ -21,7 +21,8 @@ export const menus = {
                textTransform: 'uppercase',
                transition: transitions[1],
                borderBottom: `1px solid transparent`,
-               variant: `gradients.headings`,
+			   variant: `gradients.headings`,
+			   fontSize: `1.2em`,
                '&:hover': {
                  color: `secondary`,
                  background: `transparent`,
@@ -53,7 +54,6 @@ export const menus = {
                  py: `5px`,
                  px: `10px`,
                  width: `180px`,
-                 fontSize: 1,
                  textTransform: `capitalize`,
 
                  '&:last-child': {

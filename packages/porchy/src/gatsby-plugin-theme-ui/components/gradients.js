@@ -5,11 +5,11 @@ export const gradients = {
   },
   secondary: {
     backgroundImage: t =>
-      `linear-gradient(45deg, ${t.colors.shadeBlue}, ${t.colors.shadePink})`,
+	  `linear-gradient(45deg, ${t.colors.shadeBlue}, ${t.colors.shadePink})`,
   },
   links: {
     backgroundImage: t =>
-      `linear-gradient(45deg, ${t.colors.shadeBlue}, ${t.colors.shadePink})`,
+	  `linear-gradient(45deg, ${t.colors.shadeBlue}, ${t.colors.shadePink})`,
   },
   headings: {
     background: t =>
