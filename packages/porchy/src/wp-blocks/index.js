@@ -20,13 +20,16 @@ export function getLocalBlock(block) {
 export function getLocalBlockComponent(block) {
   const { blockName, attrs } = block
   let component = ''
-
+	console.log( blockName )
   switch (blockName) {
     case 'mjj-why/circle-text':
-	  component = "MJJCircleText"
+      component = 'MJJCircleText'
       break
     case 'mjj-why/code-highlighting':
-	 component = "MJJCodeHighlighting"
+      component = 'MJJCodeHighlighting'
+      break
+    case 'mjj-why/just-to-say':
+      component = 'MJJJustToSay'
       break
   }
   return {
