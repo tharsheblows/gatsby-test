@@ -1,20 +1,28 @@
-
-.mjj-jts button{
-	margin-right: 1em;
+.mjj-jts button {
+  margin-right: 1em;
 }
 
-.mjj-jts .lib-inputs{
-	margin: 0.5em;
+.mjj-jts .lib-inputs {
+  margin: 0.5em;
 }
 
-.mjj-jts .lib-inputs label{
-	width: 25%;
-	display: inline-block;
+.mjj-jts .lib-inputs label {
+  width: 25%;
+  display: inline-block;
 }
 
+.mjj-jts .lib-inputs input {
+  width: 33%;
+  padding: 0.25em;
+  display: inline-block;
+}
 
-.mjj-jts .lib-inputs input{
-	width: 30%;
-	padding: 0.25em;
-	display: inline-block;
+@media screen and (max-width: 960px) {
+.mjj-jts .lib-inputs label {
+  width: 100%;
+  display: inline-block;
+}
+  .mjj-jts .lib-inputs input {
+    width: 100%;
+  }
 }
