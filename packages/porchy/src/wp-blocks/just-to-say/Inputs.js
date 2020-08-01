@@ -1,14 +1,19 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react'
+import sanitizeHtml from 'sanitize-html'
 
 function Inputs(props) {
   const { inputFields, inputs, divId } = props
-  let count = 1
+  // Used for sanitizing input fields. No tags allowed.
+  const allowedInputTags = []
+  let count = 0
   const inputReturn =
     inputFields.length > 0
       ? inputFields.map(i => {
 		  const id = `input-${count++}`
 		  const inputValue = ( inputs.length < count ) ? '' : inputs[count-1]
-          const input = `<div class="lib-inputs"><label for="${id}">${i.description}</label> <input type="text" name="${id}" id="${id}" value="${inputValue}"/></div>`
+          const input = `<div class="lib-inputs"><label for="${id}">${sanitizeHtml(i.description, allowedInputTags)}</label> <input type="text" name="${id}" id="${id}" value="${sanitizeHtml(inputValue, allowedInputTags)}"/></div>`
           return input
         }, [])
       : ['no fields yet']
@@ -17,7 +22,7 @@ function Inputs(props) {
 
   return (
     <div
-	  id={divId}
+      id={divId}
       className="mjj-just-to-say-inputs"
       dangerouslySetInnerHTML={returnedInputsHtml}
     />

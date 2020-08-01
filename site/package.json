@@ -25,6 +25,7 @@
 		"prismjs": "^1.17.1",
 		"react": "^16.8.4",
 		"react-dom": "^16.8.4",
+		"sanitize-html": "^1.27.2",
 		"uuid": "^8.2.0"
 	},
 	"devDependencies": {}

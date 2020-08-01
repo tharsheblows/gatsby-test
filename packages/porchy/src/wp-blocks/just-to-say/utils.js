@@ -42,26 +42,41 @@ export const makePoem = (lib, inputs) => {
 
   matchesArray.forEach(e => {
     // Make the users poem.
-	const stringToReplace = e[0]
-	const values = e[1].split(',')
-    const defaultWord =
-      values.length >= 1
-        ? values[0].trim()
-        : 'please enter a default word and description'
-	const input = inputs.length >= ++count ? inputs[count - 1] : false
-	inputArray.push(input)
+    const stringToReplace = e[0]
+    const values = e[1].split(',')
+    const defaultWord = values.length >= 1 ? values[0].trim() : ' ... '
+    const input = inputs.length >= ++count ? inputs[count - 1] : false
 
-	const yourWord = ( input && input.querySelector('input') ) ? input.querySelector('input').value : ''
-	yours = yours.replace(stringToReplace, yourWord)
-	real = real.replace(stringToReplace, defaultWord)
+	const yourWord = input
+	inputArray.push(yourWord)
+
+    yours = yours.replace(stringToReplace, yourWord)
+    real = real.replace(stringToReplace, defaultWord)
   })
 
+  console.log(inputArray)
   return {
-	  real: real,
-	  yours: yours,
-	  inputs: inputArray
+    real: real,
+    yours: yours,
+    inputs: inputArray,
+  }
+}
+
+export const getInputValues = inputDivs => {
+  let inputs = []
+  console.log(inputDivs)
+  for( let input of inputDivs ){
+    const value =
+      input &&
+      input.querySelector('input') &&
+      input.querySelector('input').value
+        ? input.querySelector('input').value
+        : ''
+
+    inputs.push(value)
   }
 
+  return inputs
 }
 
 const getMatches = markup => {

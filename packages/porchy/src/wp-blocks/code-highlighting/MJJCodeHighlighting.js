@@ -63,7 +63,6 @@ const MJJCodeHighlighting = props => {
         document.removeEventListener('click', buttonClicked)
       }
     }
-
     document.addEventListener('click', buttonClicked)
   }, [show])
 
