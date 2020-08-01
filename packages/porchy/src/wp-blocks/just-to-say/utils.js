@@ -1,3 +1,5 @@
+import matchAll from 'string.prototype.matchall'
+
 const libRegEx = /{{(.*?)}}/g
 
 export const createLib = markup => {
@@ -83,5 +85,5 @@ export const getInputValues = inputDivs => {
 }
 
 const getMatches = markup => {
-  return [...markup.matchAll(libRegEx)]
+  return [...matchAll(markup, libRegEx)]
 }

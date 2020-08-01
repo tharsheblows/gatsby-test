@@ -47,7 +47,7 @@ export const getComponents = (html, wordPressUrl, prefix) => {
     })
   }
 
-  console.log(components)
+  //console.log(components)
   return components
 }
 

@@ -23,8 +23,9 @@ const MJJJustToSay = props => {
   // The unique id of the "use saved" button. (Sanitization duplicated but also keeps it ok if I go in changing the variables)
   const useSaveId = sanitizeHtml(`use-${saveId}`, allowedInputTags)
 
+  const isBrowser = () => typeof window !== 'undefined'
   // The saved version if there is one.
-  const savedVersion = localStorage.getItem(saveId)
+  const savedVersion = (isBrowser() && localStorage.getItem(saveId))
     ? localStorage.getItem(saveId).split(',')
 	: []
 
