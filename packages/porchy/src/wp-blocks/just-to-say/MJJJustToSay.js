@@ -7,7 +7,6 @@ import { createLib, makePoem, getInputValues } from './utils'
 
 // importing copied style so I can edit it, I'm doing one of the divs wrong and can't add the theme-ui stuff.
 import './styles.css'
-import sanitize from 'sanitize-html'
 
 const MJJJustToSay = props => {
   // Get the attributes.
@@ -169,7 +168,7 @@ const MJJJustToSay = props => {
       <div className="left-buttons">
         <button
           sx={{
-            variant: `buttons.primary`,
+            variant: show === 'yours' ? `buttons.secondary` : `buttons.primary`,
             mb: 2,
           }}
           className={blockId}
@@ -179,7 +178,7 @@ const MJJJustToSay = props => {
         </button>
         <button
           sx={{
-            variant: `buttons.primary`,
+            variant: show === 'real' ? `buttons.secondary` : `buttons.primary`,
             mb: 2,
           }}
           className={blockId}
@@ -189,7 +188,7 @@ const MJJJustToSay = props => {
         </button>
         <button
           sx={{
-            variant: `buttons.primary`,
+            variant: show === 'inputs' ? `buttons.secondary` : `buttons.primary`,
             mb: 2,
           }}
           className={blockId}

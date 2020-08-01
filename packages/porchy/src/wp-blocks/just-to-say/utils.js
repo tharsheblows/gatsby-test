@@ -39,13 +39,18 @@ export const makePoem = (lib, inputs) => {
   let count = 0
 
   let inputArray = []
+  let show = true
 
   matchesArray.forEach(e => {
     // Make the users poem.
     const stringToReplace = e[0]
     const values = e[1].split(',')
     const defaultWord = values.length >= 1 ? values[0].trim() : ' ... '
-    const input = inputs.length >= ++count ? inputs[count - 1] : false
+	const input = inputs.length >= ++count ? inputs[count - 1] : false
+
+	if( ! input ){
+		show = false
+	}
 
 	const yourWord = input
 	inputArray.push(yourWord)
@@ -54,10 +59,9 @@ export const makePoem = (lib, inputs) => {
     real = real.replace(stringToReplace, defaultWord)
   })
 
-  console.log(inputArray)
   return {
     real: real,
-    yours: yours,
+    yours: show ? yours : 'Please fill out all the inputs to see your poem.',
     inputs: inputArray,
   }
 }
