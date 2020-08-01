@@ -13,7 +13,13 @@ function Inputs(props) {
       ? inputFields.map(i => {
 		  const id = `input-${count++}`
 		  const inputValue = ( inputs.length < count ) ? '' : inputs[count-1]
-          const input = `<div class="lib-inputs"><label for="${id}">${sanitizeHtml(i.description, allowedInputTags)}</label> <input type="text" name="${id}" id="${id}" value="${sanitizeHtml(inputValue, allowedInputTags)}"/></div>`
+          const input = `<div class="lib-inputs"><label for="${id}">${sanitizeHtml(
+            i.description,
+            allowedInputTags
+          )}</label> <input type="text" name="${id}-${divId}" id="${id}-${divId}" value="${sanitizeHtml(
+            inputValue,
+            allowedInputTags
+          )}"/></div>`
           return input
         }, [])
       : ['no fields yet']

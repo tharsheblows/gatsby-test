@@ -20,7 +20,6 @@ export function getLocalBlock(block) {
 export function getLocalBlockComponent(block) {
   const { blockName, attrs } = block
   let component = ''
-	console.log( blockName )
   switch (blockName) {
     case 'mjj-why/circle-text':
       component = 'MJJCircleText'

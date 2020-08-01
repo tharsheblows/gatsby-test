@@ -68,7 +68,6 @@ export const makePoem = (lib, inputs) => {
 
 export const getInputValues = inputDivs => {
   let inputs = []
-  console.log(inputDivs)
   for( let input of inputDivs ){
     const value =
       input &&

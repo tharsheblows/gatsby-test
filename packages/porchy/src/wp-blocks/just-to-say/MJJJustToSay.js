@@ -26,7 +26,7 @@ const MJJJustToSay = props => {
   // The saved version if there is one.
   const savedVersion = localStorage.getItem(saveId)
     ? localStorage.getItem(saveId).split(',')
-    : []
+	: []
 
   // The poem we'll show. This will be either the real poem or the user poem.
   const [poem, setPoem] = useState('')
@@ -125,7 +125,7 @@ const MJJJustToSay = props => {
         }}
       >
         {show === 'inputs' ? (
-          <Inputs inputFields={rendered.inputFields} inputs={inputs} />
+          <Inputs inputFields={rendered.inputFields} inputs={inputs} divId={divId} />
         ) : (
           <React.Fragment>
             <div
@@ -196,7 +196,7 @@ const MJJJustToSay = props => {
         >
           inputs
         </button>
-        {saved !== '' ? (
+        {saved.length > 0 ? (
           <button
             sx={{
               variant: `buttons.primary`,
