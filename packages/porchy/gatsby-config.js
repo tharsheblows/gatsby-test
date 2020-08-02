@@ -32,10 +32,10 @@ module.exports = options => {
           fieldName: `wpgraphql`,
           // Url to query from
           url: `${wordPressUrl}/graphql`,
-        //   headers: {
-        //     // Learn about environment variables: https://gatsby.dev/env-vars
-        //     Authorization: `Bearer ${process.env.WP_GRAPHQL_TOKEN}`,
-        //   },
+          //   headers: {
+          //     // Learn about environment variables: https://gatsby.dev/env-vars
+          //     Authorization: `Bearer ${process.env.WP_GRAPHQL_TOKEN}`,
+          //   },
         },
       },
       {
@@ -45,7 +45,21 @@ module.exports = options => {
           display: 'swap',
         },
       },
-      `gatsby-plugin-react-helmet`
+      `gatsby-plugin-react-helmet`,
+      {
+        resolve: 'gatsby-plugin-matomo',
+        options: {
+          siteId: '1',
+          matomoUrl: 'https://porchy.matomo.cloud/',
+          siteUrl: 'https://porchy.co.uk',
+          // All the optional settings
+          matomoPhpScript: 'piwik.php',
+          matomoJsScript: 'piwik.js',
+          exclude: ['/offline-plugin-app-shell-fallback/'],
+          requireConsent: false,
+          disableCookies: true
+        },
+      },
     ],
   }
 }
