@@ -30,5 +30,7 @@
 		"string.prototype.matchall": "^4.0.2",
 		"uuid": "^8.2.0"
 	},
-	"devDependencies": {}
+	"devDependencies": {
+		"gatsby-plugin-force-trailing-slashes": "^1.0.4"
+	}
 }
