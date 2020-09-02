@@ -14,7 +14,13 @@ module.exports = {
         paginationPrefix: `blog`,
         postsPerPage: 8,
       },
-	},
-	`gatsby-plugin-netlify`
+    },
+    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://porchy.co.uk`,
+      },
+    },
   ],
 }
