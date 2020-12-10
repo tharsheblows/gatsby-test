@@ -53,7 +53,7 @@ export default {
       textAlign: `center`,
       display: `block`,
       color: `textMuted`,
-      p: 0,
+	  p: 0,
     },
     Container: {
       maxWidth: `1200px`,
