@@ -1,0 +1,43 @@
+
+	.porchy.clickgame{
+		display: flex;
+		justify-content: center;
+	}
+	.porchy.clickgame .click-circle{
+			border-radius: 50%;
+			border: 1px solid white;
+			color: white;
+			width: 200px;
+			height: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+	}
+
+		.porchy.clickgame .click-circle.start{
+				background-color: green;
+				border-color: green;
+		}
+
+		.porchy.clickgame .click-circle.running{
+				background-color: rgb( 110, 0, 110);
+				border-color: rgb( 110, 0, 110);
+			}
+
+		.porchy.clickgame .click-circle.won{
+				background-color: blue;
+				border-color: blue;
+
+			}
+
+		.porchy.clickgame .click-circle.lost{
+				background-color: red;
+				border-color: red;
+			}
+
+		.porchy.clickgame .game{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}

@@ -3,13 +3,15 @@ import MJJContentHolder from './content-holder'
 import MJJCircleText from './circle-text/MJJCircleText'
 import MJJCodeHighlighting from './code-highlighting/MJJCodeHighlighting'
 import MJJJustToSay from './just-to-say/MJJJustToSay'
+import Game from './circle-game/Game'
 
 
 const Components = {
   MJJCircleText: MJJCircleText,
   MJJCodeHighlighting: MJJCodeHighlighting,
   MJJJustToSay: MJJJustToSay,
-  MJJContentHolder: MJJContentHolder
+  MJJContentHolder: MJJContentHolder,
+  Game: Game
 }
 
 const makeElement = ( block ) => {

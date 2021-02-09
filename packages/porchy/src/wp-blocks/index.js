@@ -30,6 +30,9 @@ export function getLocalBlockComponent(block) {
     case 'mjj-why/just-to-say':
       component = 'MJJJustToSay'
       break
+    case 'porchy/clickgame':
+      component = 'Game'
+      break
   }
   return {
     component: component,
